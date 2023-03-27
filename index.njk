@@ -1,0 +1,11 @@
+---
+title: Carlo Espino's Personal Site
+publish_as_page_in_home_listings: false
+---
+
+<h2>Pages</h2>
+<ul>
+  {% for page in search.pages("publish_as_page_in_home_listings=true", "title") %}
+  <li><a href="{{ page.data.url }}" rel="noreferrer noopener">{{ page.data.url | replace("-", " ") | replace("/", "") | replace(".html", "") }}</a></li>
+  {% endfor %}
+</ul>
