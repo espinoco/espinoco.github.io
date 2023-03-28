@@ -98,33 +98,67 @@
         <a href="/">&#47;home</a>
         <a href="/about.html">&#47;about</a>
       </nav>
-      <h1>Carlo Espino&#39;s Personal Site</h1>
-      <h2>Pages</h2>
-<ul>
-  
-  <li><a href="/Bash-Cheat-Sheet.html" rel="noreferrer noopener">Bash Cheat Sheet</a></li>
-  
-  <li><a href="/Git-Cheat-Sheet.html" rel="noreferrer noopener">Git Cheat Sheet</a></li>
-  
-  <li><a href="/Homebrew-Cheat-Sheet.html" rel="noreferrer noopener">Homebrew Cheat Sheet</a></li>
-  
-  <li><a href="/IntelliJ-IDEA-Cheat-Sheet.html" rel="noreferrer noopener">IntelliJ IDEA Cheat Sheet</a></li>
-  
-  <li><a href="/Password-Generation-Cheat-Sheet.html" rel="noreferrer noopener">Password Generation Cheat Sheet</a></li>
-  
-  <li><a href="/Splunk-Cheat-Sheet.html" rel="noreferrer noopener">Splunk Cheat Sheet</a></li>
-  
-  <li><a href="/Terminal-Cheat-Sheet.html" rel="noreferrer noopener">Terminal Cheat Sheet</a></li>
-  
-  <li><a href="/Use-Postman-to-convert-request-to-CURL.html" rel="noreferrer noopener">Use Postman to convert request to CURL</a></li>
-  
-  <li><a href="/Vim-Cheat-Sheet.html" rel="noreferrer noopener">Vim Cheat Sheet</a></li>
-  
-  <li><a href="/vimdiff-Cheat-Sheet.html" rel="noreferrer noopener">vimdiff Cheat Sheet</a></li>
-  
-  <li><a href="/vimrc.html" rel="noreferrer noopener">vimrc</a></li>
-  
-</ul>
+      <h1>vimrc</h1>
+      <pre><code class="language-vimscript">&quot; syntax highlighting
+syntax on
+
+&quot; show line numbers
+set number
+
+&quot; auto indent
+set autoindent
+set smartindent
+
+&quot; identation size
+set tabstop=2 &quot; Width of tab character
+set softtabstop=2 &quot; Fine tunes the amount of white space to be added
+set shiftwidth=2 &quot; Determines the amount of whitespace to add in normal mode
+
+&quot; use spaces instead of tabs
+set expandtab
+
+&quot; use tabs instead of spaces for make files
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
+&quot; file formatting
+set fileformat=unix
+set fileformats=unix,dos
+set encoding=utf-8  &quot; The encoding displayed
+set fileencoding=utf-8  &quot; The encoding written to file
+
+&quot; trim trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
+
+&quot; tell vim to keep a backup file
+set backup
+
+&quot; tell vim where to put its backup and swap files
+if has('win32') || has ('win64')
+  &quot; backup files
+  set backupdir=C:\\Temp
+  &quot; swap files
+  set dir=C:\\Temp
+else
+  &quot; backup files
+  set backupdir=/private/tmp
+  &quot; swap files
+  set dir=/private/tmp
+endif
+
+&quot; enable mouse click navigation
+set mouse=a
+
+&quot; Change cursor shape in different modes
+let &amp;t_SI.=&quot;\e[5 q&quot; &quot;SI = INSERT mode
+let &amp;t_SR.=&quot;\e[4 q&quot; &quot;SR = REPLACE mode
+let &amp;t_EI.=&quot;\e[1 q&quot; &quot;EI = NORMAL mode (ELSE)
+
+&quot; Instant cursor shape change in different modes
+set ttimeout
+set ttimeoutlen=1
+set listchars=tab:&gt;-,trail:~,extends:&gt;,precedes:&lt;,space:.
+set ttyfast
+</code></pre>
 
     </main>
     <script src="js/anime2.0.2.min.js"></script>
