@@ -98,37 +98,25 @@
         <a href="/">&#47;home</a>
         <a href="/about.html">&#47;about</a>
       </nav>
-      <h1>Carlo Espino&#39;s Personal Site</h1>
-      <h2>Pages</h2>
-<ul>
-  
-  <li><a href="/Bash-Cheat-Sheet.html" rel="noreferrer noopener">Bash Cheat Sheet</a></li>
-  
-  <li><a href="/Git-Cheat-Sheet.html" rel="noreferrer noopener">Git Cheat Sheet</a></li>
-  
-  <li><a href="/Homebrew-Cheat-Sheet.html" rel="noreferrer noopener">Homebrew Cheat Sheet</a></li>
-  
-  <li><a href="/IntelliJ-IDEA-Cheat-Sheet.html" rel="noreferrer noopener">IntelliJ IDEA Cheat Sheet</a></li>
-  
-  <li><a href="/Password-Generation-Cheat-Sheet.html" rel="noreferrer noopener">Password Generation Cheat Sheet</a></li>
-  
-  <li><a href="/Splunk-Cheat-Sheet.html" rel="noreferrer noopener">Splunk Cheat Sheet</a></li>
-  
-  <li><a href="/Terminal-Cheat-Sheet.html" rel="noreferrer noopener">Terminal Cheat Sheet</a></li>
-  
-  <li><a href="/Use-Postman-to-convert-request-to-CURL.html" rel="noreferrer noopener">Use Postman to convert request to CURL</a></li>
-  
-  <li><a href="/Vim-Cheat-Sheet.html" rel="noreferrer noopener">Vim Cheat Sheet</a></li>
-  
-  <li><a href="/bash_profile.html" rel="noreferrer noopener">bash_profile</a></li>
-  
-  <li><a href="/inputrc.html" rel="noreferrer noopener">inputrc</a></li>
-  
-  <li><a href="/vimdiff-Cheat-Sheet.html" rel="noreferrer noopener">vimdiff Cheat Sheet</a></li>
-  
-  <li><a href="/vimrc.html" rel="noreferrer noopener">vimrc</a></li>
-  
-</ul>
+      <h1>inputrc</h1>
+      <pre><code class="language-bash">$if Bash
+    # Allow bash command prompt to work like vi. Similar to Ctrl-X Ctrl-E while on the default emacs mode, you can hit `v` while in the vi command mode
+    set editing-mode vi
+$endif
+
+$if mode=vi
+    # Allow to display the vi current mode in the prompt
+    set show-mode-in-prompt on
+    # Set the cursor as vertical bar while on insert mode
+    set vi-ins-mode-string \1\e[6 q\2
+    # Set the cursor as block while on command mode
+    set vi-cmd-mode-string \1\e[2 q\2
+    # Switch to block cursor before executing a command. Otherwise, cursor will stay as vertical bar (insert mode) after opening a file with vi
+    set keymap vi-insert
+    RETURN: &quot;\e\n&quot;
+$endif
+
+</code></pre>
 
     </main>
     <script src="js/anime2.0.2.min.js"></script>

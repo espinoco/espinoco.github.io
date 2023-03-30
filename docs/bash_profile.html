@@ -98,37 +98,60 @@
         <a href="/">&#47;home</a>
         <a href="/about.html">&#47;about</a>
       </nav>
-      <h1>Carlo Espino&#39;s Personal Site</h1>
-      <h2>Pages</h2>
-<ul>
-  
-  <li><a href="/Bash-Cheat-Sheet.html" rel="noreferrer noopener">Bash Cheat Sheet</a></li>
-  
-  <li><a href="/Git-Cheat-Sheet.html" rel="noreferrer noopener">Git Cheat Sheet</a></li>
-  
-  <li><a href="/Homebrew-Cheat-Sheet.html" rel="noreferrer noopener">Homebrew Cheat Sheet</a></li>
-  
-  <li><a href="/IntelliJ-IDEA-Cheat-Sheet.html" rel="noreferrer noopener">IntelliJ IDEA Cheat Sheet</a></li>
-  
-  <li><a href="/Password-Generation-Cheat-Sheet.html" rel="noreferrer noopener">Password Generation Cheat Sheet</a></li>
-  
-  <li><a href="/Splunk-Cheat-Sheet.html" rel="noreferrer noopener">Splunk Cheat Sheet</a></li>
-  
-  <li><a href="/Terminal-Cheat-Sheet.html" rel="noreferrer noopener">Terminal Cheat Sheet</a></li>
-  
-  <li><a href="/Use-Postman-to-convert-request-to-CURL.html" rel="noreferrer noopener">Use Postman to convert request to CURL</a></li>
-  
-  <li><a href="/Vim-Cheat-Sheet.html" rel="noreferrer noopener">Vim Cheat Sheet</a></li>
-  
-  <li><a href="/bash_profile.html" rel="noreferrer noopener">bash_profile</a></li>
-  
-  <li><a href="/inputrc.html" rel="noreferrer noopener">inputrc</a></li>
-  
-  <li><a href="/vimdiff-Cheat-Sheet.html" rel="noreferrer noopener">vimdiff Cheat Sheet</a></li>
-  
-  <li><a href="/vimrc.html" rel="noreferrer noopener">vimrc</a></li>
-  
-</ul>
+      <h1>bash_profile</h1>
+      <pre><code class="language-bash"># History size
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000
+
+# Append commands to the history file rather than overwrite it
+shopt -s histappend
+
+# Control how commands are saved in the history file
+export HISTCONTROL=ignoredups:erasedups
+
+# Store multi-line commands in one history entry
+shopt -s cmdhist
+
+# Enables forward bash history search with C-s
+stty -ixon
+
+# Navigate through previous commands, which start with the same fragment using up/down arrows
+bind '&quot;\e[A&quot;:history-search-backward'
+bind '&quot;\e[B&quot;:history-search-forward'
+
+# Save each command into history right after it has been executed
+PROMPT_COMMAND=&quot;history -n; history -w; history -c; history -r; $PROMPT_COMMAND&quot;
+
+# Get git branch for prompt
+parse_git_branch() {
+     git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# Prompt
+export PS1=&quot;\`if [ \$? = 0 ]; then echo \[\e[32m\]0\[\e[0m\]; else echo \[\e[31m\]1\[\e[0m\]; fi\` \e[0;34m\W \$(parse_git_branch)\nλ\e[m &quot;
+
+# Set the default editor
+export EDITOR=vi
+
+# Locally installed programs for system administration.
+export PATH=&quot;/usr/local/sbin:$PATH&quot;
+
+alias ls=&quot;ls -holA&quot;
+
+# Automatically corrects small typos in directory names and jumps to the best guess of existing directories
+shopt -s cdspell
+
+# cd to only suggest directories
+complete -d cd
+
+# Use CDPATH to define the base directories for cd command, place all projects under ~/workspace
+export CDPATH=.:~:~/workspace
+
+# Place all projects under ~/workspace and have in there a .bash_profile with workspace specific bash configurations like nvm, sdkman, pyenv, tea, bash completions, etc.
+if [[ -f ~/workspace/.bash_profile ]]; then
+  source ~/workspace/.bash_profile
+fi
+</code></pre>
 
     </main>
     <script src="js/anime2.0.2.min.js"></script>
