@@ -95,22 +95,54 @@
           background-color: rgb(54, 65, 53) !important;
         }
       }
+      h1 span {
+        display: inline-block;
+        animation: butterfly 1s infinite;
+        animation-delay: calc(.1s * var(--i));
+
+      }
+      @keyframes butterfly {
+        0%,40%,100% {
+          transform: translateY(0)
+        }
+        20% {
+          transform: translateY(-20px)
+        }
+      }
     </style>
   </head>
   <body>
     <main class="content">
       <nav>
         <a href="/">&#47;home</a>
-        <a href="/about.html">&#47;about</a>
+        <a href="/About">&#47;about</a>
       </nav>
-      <h1>Terminal Cheat Sheet</h1>
-      <ul>
-<li><code>⌘ + K</code> - completely wipes all previous output from the terminal so that it can't be reached even by scrolling up</li>
-<li><code>⌥ + Left Click</code> - terminal's cursor jumps to the clicked location</li>
-</ul>
+      <h1>About</h1>
+      <p>I really enjoy writing computer programs; and I especially enjoy writing programs that do the greatest good, in some sense.</p>
+<p>My mission is to make people's lives better with quality software engineering. Writing software is an activity I'll hardly stop doing even if I no longer dedicate myself to it professionally. I also do it for fun.</p>
+<p>I'm a Software Engineer in Seattle, WA. I began my career in Durango, Mexico, and since I have been lucky to have had a wide range of experience working with the development of complex software in teams, both large and small, in Mexico and the United States.</p>
+<p>My full name is Carlo Eduardo Rodriguez Espino.</p>
+<h2>Send me an email</h2>
+<p>Please write to carlo at carlo espino dot com.</p>
 
     </main>
-    <script src="js/anime2.0.2.min.js"></script>
-    <script src="js/index.js"></script>
+    <script>
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      console.log("* Greetings human. You're a curios one.        *");
+      console.log("*   Call butterfly() and unleash the powers of *");
+      console.log("*   the butterfly.                             *");
+      console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+      function butterfly() {
+          const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+          for (let i = 0; i < headings.length; i++) {
+            const heading = headings[i];
+            let delay = 0;
+            heading.innerHTML = heading.textContent.replace(/\S/g, function(match) {
+              return "<span style='--i:" + ++delay + "'>" + match  + "</span>"
+            });
+          }
+          console.log("Watch the headings on the page!");
+      }
+    </script>
   </body>
 </html>

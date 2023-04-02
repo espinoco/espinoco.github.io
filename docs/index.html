@@ -95,48 +95,78 @@
           background-color: rgb(54, 65, 53) !important;
         }
       }
+      h1 span {
+        display: inline-block;
+        animation: butterfly 1s infinite;
+        animation-delay: calc(.1s * var(--i));
+
+      }
+      @keyframes butterfly {
+        0%,40%,100% {
+          transform: translateY(0)
+        }
+        20% {
+          transform: translateY(-20px)
+        }
+      }
     </style>
   </head>
   <body>
     <main class="content">
       <nav>
         <a href="/">&#47;home</a>
-        <a href="/about.html">&#47;about</a>
+        <a href="/About">&#47;about</a>
       </nav>
       <h1>Carlo Espino&#39;s Personal Site</h1>
       <h2>Pages</h2>
 <ul>
   
-  <li><a href="/Bash-Cheat-Sheet.html" rel="noreferrer noopener">Bash Cheat Sheet</a></li>
+  <li><a href="/Bash-Cheat-Sheet/" rel="noreferrer noopener">Bash Cheat Sheet</a></li>
   
-  <li><a href="/Git-Cheat-Sheet.html" rel="noreferrer noopener">Git Cheat Sheet</a></li>
+  <li><a href="/Git-Cheat-Sheet/" rel="noreferrer noopener">Git Cheat Sheet</a></li>
   
-  <li><a href="/Homebrew-Cheat-Sheet.html" rel="noreferrer noopener">Homebrew Cheat Sheet</a></li>
+  <li><a href="/Homebrew-Cheat-Sheet/" rel="noreferrer noopener">Homebrew Cheat Sheet</a></li>
   
-  <li><a href="/IntelliJ-IDEA-Cheat-Sheet.html" rel="noreferrer noopener">IntelliJ IDEA Cheat Sheet</a></li>
+  <li><a href="/IntelliJ-IDEA-Cheat-Sheet/" rel="noreferrer noopener">IntelliJ IDEA Cheat Sheet</a></li>
   
-  <li><a href="/Password-Generation-Cheat-Sheet.html" rel="noreferrer noopener">Password Generation Cheat Sheet</a></li>
+  <li><a href="/Password-Generation-Cheat-Sheet/" rel="noreferrer noopener">Password Generation Cheat Sheet</a></li>
   
-  <li><a href="/Splunk-Cheat-Sheet.html" rel="noreferrer noopener">Splunk Cheat Sheet</a></li>
+  <li><a href="/Splunk-Cheat-Sheet/" rel="noreferrer noopener">Splunk Cheat Sheet</a></li>
   
-  <li><a href="/Terminal-Cheat-Sheet.html" rel="noreferrer noopener">Terminal Cheat Sheet</a></li>
+  <li><a href="/Terminal-Cheat-Sheet/" rel="noreferrer noopener">Terminal Cheat Sheet</a></li>
   
-  <li><a href="/Use-Postman-to-convert-request-to-CURL.html" rel="noreferrer noopener">Use Postman to convert request to CURL</a></li>
+  <li><a href="/Use-Postman-to-convert-request-to-CURL/" rel="noreferrer noopener">Use Postman to convert request to CURL</a></li>
   
-  <li><a href="/Vim-Cheat-Sheet.html" rel="noreferrer noopener">Vim Cheat Sheet</a></li>
+  <li><a href="/Vim-Cheat-Sheet/" rel="noreferrer noopener">Vim Cheat Sheet</a></li>
   
-  <li><a href="/bash_profile.html" rel="noreferrer noopener">bash_profile</a></li>
+  <li><a href="/bash_profile/" rel="noreferrer noopener">bash_profile</a></li>
   
-  <li><a href="/inputrc.html" rel="noreferrer noopener">inputrc</a></li>
+  <li><a href="/inputrc/" rel="noreferrer noopener">inputrc</a></li>
   
-  <li><a href="/vimdiff-Cheat-Sheet.html" rel="noreferrer noopener">vimdiff Cheat Sheet</a></li>
+  <li><a href="/vimdiff-Cheat-Sheet/" rel="noreferrer noopener">vimdiff Cheat Sheet</a></li>
   
-  <li><a href="/vimrc.html" rel="noreferrer noopener">vimrc</a></li>
+  <li><a href="/vimrc/" rel="noreferrer noopener">vimrc</a></li>
   
 </ul>
 
     </main>
-    <script src="js/anime2.0.2.min.js"></script>
-    <script src="js/index.js"></script>
+    <script>
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      console.log("* Greetings human. You're a curios one.        *");
+      console.log("*   Call butterfly() and unleash the powers of *");
+      console.log("*   the butterfly.                             *");
+      console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+      function butterfly() {
+          const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+          for (let i = 0; i < headings.length; i++) {
+            const heading = headings[i];
+            let delay = 0;
+            heading.innerHTML = heading.textContent.replace(/\S/g, function(match) {
+              return "<span style='--i:" + ++delay + "'>" + match  + "</span>"
+            });
+          }
+          console.log("Watch the headings on the page!");
+      }
+    </script>
   </body>
 </html>

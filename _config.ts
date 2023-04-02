@@ -4,11 +4,10 @@ const site = lume({
   server: {
     page404: "/index.html"
   },
-  prettyUrls: false,
-  dest: "./docs" // GitHub pages only allows / (root) or /docs folders to be selected to build the site
+  // GitHub Pages only allows the / (root) or /docs folders to be selected to build the site
+  dest: "./docs"
 });
-site.ignore("README.md", "Private");
+site.ignore("README.md");
 site.copy("CNAME");
-site.copy("js");
 
 export default site;

@@ -95,21 +95,54 @@
           background-color: rgb(54, 65, 53) !important;
         }
       }
+      h1 span {
+        display: inline-block;
+        animation: butterfly 1s infinite;
+        animation-delay: calc(.1s * var(--i));
+
+      }
+      @keyframes butterfly {
+        0%,40%,100% {
+          transform: translateY(0)
+        }
+        20% {
+          transform: translateY(-20px)
+        }
+      }
     </style>
   </head>
   <body>
     <main class="content">
       <nav>
         <a href="/">&#47;home</a>
-        <a href="/about.html">&#47;about</a>
+        <a href="/About">&#47;about</a>
       </nav>
-      <h1>IntelliJ IDEA Cheat Sheet</h1>
+      <h1>Git Cheat Sheet</h1>
       <ul>
-<li><code>⇧ ⌘ R</code> - To open the search and replace dialog to replace content across all the files in a project.</li>
+<li><code>git checkout -b &lt;commit hash&gt; &lt;commit hash&gt;</code> - creates new branch with name  <code>&lt;commit hash&gt;</code> based on the <code>&lt;commit hash&gt;</code></li>
+<li><code>git clean -df</code> - delete untracked files</li>
+<li><code>git rebase -i HEAD~&lt;num&gt;</code> - rebase the last <code>&lt;num&gt;</code> of commits interactively</li>
+<li><code>git reset --soft HEAD~1</code> - undo the last commit, but keep the last commit's changes staged</li>
 </ul>
 
     </main>
-    <script src="js/anime2.0.2.min.js"></script>
-    <script src="js/index.js"></script>
+    <script>
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+      console.log("* Greetings human. You're a curios one.        *");
+      console.log("*   Call butterfly() and unleash the powers of *");
+      console.log("*   the butterfly.                             *");
+      console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+      function butterfly() {
+          const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+          for (let i = 0; i < headings.length; i++) {
+            const heading = headings[i];
+            let delay = 0;
+            heading.innerHTML = heading.textContent.replace(/\S/g, function(match) {
+              return "<span style='--i:" + ++delay + "'>" + match  + "</span>"
+            });
+          }
+          console.log("Watch the headings on the page!");
+      }
+    </script>
   </body>
 </html>
