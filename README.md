@@ -4,9 +4,13 @@ This site uses [deno](https://github.com/denoland/deno) as the JavaScript runtim
 
 - The `src` directory includes all of the pages to be generated.
 - The `_includes` directory includes the layouts of the site.
-- The `_data.yml` file includes the shared data across pages.
+- The `_data.yml` file stores the shared data across pages.
 
-Each page needs a front matter with a `title` variable with the title of the page which is set as the `h1` heading. If you want the page to be listed in the home page, set the `publish_as_page_in_home_listings` variable to `true`.
+Each page needs a front matter with a `title` variable with the title of the page which is set as the `h1` heading.
+
+There are two kinds of pages, the nav pages and the non-nav pages. The nav pages are listed in the navigation element and non-nav pages are listed in the homepage.
+- To make a page a nav page, set the variable `is_nav_page` to `true`, then set the `nav_text` variable to the text to display in the nav link, and then set the `nav_order` to a strictly increasing integer to set its order in the nav element.
+- The non-nav pages require no specific variables to be set, they'll get listed in the homepage and use the `title` variable as the text for the link to that page.
 
 ## Dependencies
 

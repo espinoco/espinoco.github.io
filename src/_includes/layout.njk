@@ -114,8 +114,9 @@
   <body>
     <main class="content">
       <nav>
-        <a href="/">&#47;home</a>
-        <a href="/About">&#47;about</a>
+        {% for page in search.pages("is_nav_page=true", "nav_order") %}
+        <a href="{{ page.data.url }}" rel="noreferrer noopener">{{ page.data.nav_text }}</a>
+        {% endfor %}
       </nav>
       <h1>{{title}}</h1>
       {{ content | safe }}

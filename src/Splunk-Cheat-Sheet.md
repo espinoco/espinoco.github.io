@@ -1,6 +1,5 @@
 ---
 title: Splunk Cheat Sheet
-publish_as_page_in_home_listings: true
 ---
 
 - `<query> | timechart count` - visualize graph count of logs

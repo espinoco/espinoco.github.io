@@ -1,6 +1,5 @@
 ---
 title: Homebrew Cheat Sheet
-publish_as_page_in_home_listings: true
 ---
 
 - `brew doctor` - check Homebrew's heatlh

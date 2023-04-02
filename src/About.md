@@ -1,7 +1,15 @@
 ---
 title: About
-publish_as_page_in_home_listings: false
+is_nav_page: true
+nav_text: /about
+nav_order: 1
 ---
+## About this site
+
+[https://github.com/croespino/croespino.github.io](https://github.com/croespino/croespino.github.io)
+
+## About me
+
 I really enjoy writing computer programs; and I especially enjoy writing programs that do the greatest good, in some sense.
 
 My mission is to make people's lives better with quality software engineering. Writing software is an activity I'll hardly stop doing even if I no longer dedicate myself to it professionally. I also do it for fun.

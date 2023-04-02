@@ -1,6 +1,5 @@
 ---
 title: Use Postman to convert request to CURL
-publish_as_page_in_home_listings: true
 ---
 
 - Create the request in Postman then > Side bar > `</>` (Code) > cURL > Copy snippet

@@ -1,6 +1,5 @@
 ---
 title: inputrc
-publish_as_page_in_home_listings: true
 ---
 ```bash
 $if Bash

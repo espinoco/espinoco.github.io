@@ -1,6 +1,5 @@
 ---
 title: vimrc
-publish_as_page_in_home_listings: true
 ---
 ```vimscript
 " syntax highlighting

@@ -1,6 +1,5 @@
 ---
 title: bash_profile
-publish_as_page_in_home_listings: true
 ---
 ```bash
 # History size

@@ -1,6 +1,5 @@
 ---
 title: Git Cheat Sheet
-publish_as_page_in_home_listings: true
 ---
 
 - `git checkout -b <commit hash> <commit hash>` - creates new branch with name  `<commit hash>` based on the `<commit hash>`
