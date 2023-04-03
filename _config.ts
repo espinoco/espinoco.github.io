@@ -12,7 +12,7 @@ const site = lume({
   // GitHub Pages only allows the / (root) or /docs folders to be selected to build the site
   dest: "./docs",
   server: {
-    page404: "/index.html"
+    page404: "/404.html"
   },
   location: new URL("https://carloespino.com") // needed for sitemap to set the url
 });
