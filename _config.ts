@@ -1,6 +1,7 @@
 import lume from "lume/mod.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import codeHighlight from "lume/plugins/code_highlight.ts";
+import sitemap from "lume/plugins/sitemap.ts";
 
 import lang_bash from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/bash.min.js";
 import lang_vimscript from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/vim.min.js";
@@ -11,7 +12,8 @@ const site = lume({
   dest: "./docs",
   server: {
     page404: "/index.html"
-  }
+  },
+  location: new URL("https://carloespino.com") // needed for sitemap to set the url
 });
 site.copy("CNAME");
 site.use(slugifyUrls()); // Slugify all page URLs to remove potentially conflicting characters
@@ -23,5 +25,6 @@ site.use(
     }
   })
 );
+site.use(sitemap());
 
 export default site;
