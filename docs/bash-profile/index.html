@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carlo Espino&#39;s Personal Site">
+    <meta name="description" content="Carlo Espino's Personal Site">
     <title>Carlo Espino</title>
+    <link href="/css/main.css" rel="stylesheet">
     <style>
       body {
         max-width: 50.5em;
@@ -26,20 +26,13 @@
       textarea {
         background-color: rgb(240, 240, 240) !important;
       }
-      blockquote,
-      pre {
+      blockquote {
         background-color: rgb(245, 247, 240) !important;
-      }
-      code {
-        background-color: rgb(237, 252, 237) !important;
       }
       pre {
         white-space: pre-wrap;
         max-width: 60em;
         min-width: 60em;
-      }
-      pre code {
-        background-color: rgb(245, 247, 240) !important;
       }
       h1 .letter,
       h2 .letter,
@@ -75,8 +68,7 @@
           background-color: rgb(58, 58, 58) !important;
           color: rgb(169, 183, 198) !important;
         }
-        blockquote,
-        pre {
+        blockquote {
           background-color: rgb(54, 65, 53) !important;
         }
         h1,
@@ -87,19 +79,11 @@
         h6 {
           color: rgb(169, 183, 198) !important;
         }
-        code {
-          background-color: rgb(54, 65, 53) !important;
-          color: rgb(169, 183, 198) !important;
-        }
-        pre code {
-          background-color: rgb(54, 65, 53) !important;
-        }
       }
       h1 span {
         display: inline-block;
         animation: butterfly 1s infinite;
         animation-delay: calc(.1s * var(--i));
-
       }
       @keyframes butterfly {
         0%,40%,100% {
@@ -121,58 +105,58 @@
         
       </nav>
       <h1>bash_profile</h1>
-      <pre><code class="language-bash"># History size
-export HISTSIZE=1000000
-export HISTFILESIZE=1000000
+      <pre><code class="language-bash hljs"><span class="hljs-comment"># History size</span>
+<span class="hljs-built_in">export</span> HISTSIZE=1000000
+<span class="hljs-built_in">export</span> HISTFILESIZE=1000000
 
-# Append commands to the history file rather than overwrite it
-shopt -s histappend
+<span class="hljs-comment"># Append commands to the history file rather than overwrite it</span>
+<span class="hljs-built_in">shopt</span> -s histappend
 
-# Control how commands are saved in the history file
-export HISTCONTROL=ignoredups:erasedups
+<span class="hljs-comment"># Control how commands are saved in the history file</span>
+<span class="hljs-built_in">export</span> HISTCONTROL=ignoredups:erasedups
 
-# Store multi-line commands in one history entry
-shopt -s cmdhist
+<span class="hljs-comment"># Store multi-line commands in one history entry</span>
+<span class="hljs-built_in">shopt</span> -s cmdhist
 
-# Enables forward bash history search with C-s
-stty -ixon
+<span class="hljs-comment"># Enables forward bash history search with C-s</span>
+<span class="hljs-built_in">stty</span> -ixon
 
-# Navigate through previous commands, which start with the same fragment using up/down arrows
-bind '&quot;\e[A&quot;:history-search-backward'
-bind '&quot;\e[B&quot;:history-search-forward'
+<span class="hljs-comment"># Navigate through previous commands, which start with the same fragment using up/down arrows</span>
+<span class="hljs-built_in">bind</span> <span class="hljs-string">'"\e[A":history-search-backward'</span>
+<span class="hljs-built_in">bind</span> <span class="hljs-string">'"\e[B":history-search-forward'</span>
 
-# Save each command into history right after it has been executed
-PROMPT_COMMAND=&quot;history -n; history -w; history -c; history -r; $PROMPT_COMMAND&quot;
+<span class="hljs-comment"># Save each command into history right after it has been executed</span>
+PROMPT_COMMAND=<span class="hljs-string">"history -n; history -w; history -c; history -r; <span class="hljs-variable">$PROMPT_COMMAND</span>"</span>
 
-# Get git branch for prompt
-parse_git_branch() {
-     git branch 2&gt; /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+<span class="hljs-comment"># Get git branch for prompt</span>
+<span class="hljs-function"><span class="hljs-title">parse_git_branch</span></span>() {
+     git branch 2&gt; /dev/null | sed -e <span class="hljs-string">'/^[^*]/d'</span> -e <span class="hljs-string">'s/* \(.*\)/(\1)/'</span>
 }
 
-# Prompt
-export PS1=&quot;\`if [ \$? = 0 ]; then echo \[\e[32m\]0\[\e[0m\]; else echo \[\e[31m\]1\[\e[0m\]; fi\` \e[0;34m\W \$(parse_git_branch)\nλ\e[m &quot;
+<span class="hljs-comment"># Prompt</span>
+<span class="hljs-built_in">export</span> PS1=<span class="hljs-string">"\`if [ \$? = 0 ]; then echo \[\e[32m\]0\[\e[0m\]; else echo \[\e[31m\]1\[\e[0m\]; fi\` \e[0;34m\W \$(parse_git_branch)\nλ\e[m "</span>
 
-# Set the default editor
-export EDITOR=vi
+<span class="hljs-comment"># Set the default editor</span>
+<span class="hljs-built_in">export</span> EDITOR=vi
 
-# Locally installed programs for system administration.
-export PATH=&quot;/usr/local/sbin:$PATH&quot;
+<span class="hljs-comment"># Locally installed programs for system administration.</span>
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-string">"/usr/local/sbin:<span class="hljs-variable">$PATH</span>"</span>
 
-alias ls=&quot;ls -holA&quot;
+<span class="hljs-built_in">alias</span> <span class="hljs-built_in">ls</span>=<span class="hljs-string">"ls -holA"</span>
 
-# Automatically corrects small typos in directory names and jumps to the best guess of existing directories
-shopt -s cdspell
+<span class="hljs-comment"># Automatically corrects small typos in directory names and jumps to the best guess of existing directories</span>
+<span class="hljs-built_in">shopt</span> -s cdspell
 
-# cd to only suggest directories
-complete -d cd
+<span class="hljs-comment"># cd to only suggest directories</span>
+complete -d <span class="hljs-built_in">cd</span>
 
-# Use CDPATH to define the base directories for cd command, place all projects under ~/workspace
-export CDPATH=.:~:~/workspace
+<span class="hljs-comment"># Use CDPATH to define the base directories for cd command, place all projects under ~/workspace</span>
+<span class="hljs-built_in">export</span> CDPATH=.:~:~/workspace
 
-# Place all projects under ~/workspace and have in there a .bash_profile with workspace specific bash configurations like nvm, sdkman, pyenv, tea, bash completions, etc.
-if [[ -f ~/workspace/.bash_profile ]]; then
-  source ~/workspace/.bash_profile
-fi
+<span class="hljs-comment"># Place all projects under ~/workspace and have in there a .bash_profile with workspace specific bash configurations like nvm, sdkman, pyenv, tea, bash completions, etc.</span>
+<span class="hljs-keyword">if</span> [[ -f ~/workspace/.bash_profile ]]; <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">source</span> ~/workspace/.bash_profile
+<span class="hljs-keyword">fi</span>
 </code></pre>
 
     </main>
@@ -194,5 +178,6 @@ fi
           console.log("Watch the headings on the page!");
       }
     </script>
-  </body>
-</html>
+  
+
+</body></html>

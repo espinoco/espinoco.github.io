@@ -360,6 +360,7 @@
     "https://deno.land/x/lume@v1.16.0/deps/front_matter.ts": "070c4514443d51a79c8e54cb6b6d7403b72faf64c70b0349a79844e6d052b0c4",
     "https://deno.land/x/lume@v1.16.0/deps/fs.ts": "4c2d74dcc893d20ec5cd221073739c75b2cae2a7e84a2ea04f2f1f375bc8b656",
     "https://deno.land/x/lume@v1.16.0/deps/hex.ts": "27072dae0fe6f0871088f1d5352b82bffad3ca487ba97e2a13506c477b68ed2f",
+    "https://deno.land/x/lume@v1.16.0/deps/highlight.ts": "cf605598fd14ff13da2c973c8501ab5e76f868054a7616df2b333a0cfe31e4d9",
     "https://deno.land/x/lume@v1.16.0/deps/http.ts": "47628d6e4ac402c9b361e4473fcd9b8b1dfe90d45e0cc2f1ab4fb07605ea5b92",
     "https://deno.land/x/lume@v1.16.0/deps/imagick.ts": "94d4b2e94aaf45b21e7a4855dec0533790cd4800854ea3a40a4de755f7baacb0",
     "https://deno.land/x/lume@v1.16.0/deps/jsonc.ts": "c9921b62090d26e6d54e7639f3306d247a088675935c11119bc23db225287119",
@@ -376,6 +377,7 @@
     "https://deno.land/x/lume@v1.16.0/middlewares/reload.ts": "1162ee5fc3c7e1f6b5fb3da73a648fc71f0a64d30ca48f05ed066c8cb80adbb6",
     "https://deno.land/x/lume@v1.16.0/middlewares/reload_client.js": "34d75e01503fae8180796de882af42b1125fac88f22a010a99d5548de1ba7d72",
     "https://deno.land/x/lume@v1.16.0/mod.ts": "dfbd21b32552491b5e3412a21887b6bd72159a9828702574fac9793ff2de8a8c",
+    "https://deno.land/x/lume@v1.16.0/plugins/code_highlight.ts": "5b177676c6c60ba10d676ac9fc8b8b3103920529bb115656adc406737f25c9ab",
     "https://deno.land/x/lume@v1.16.0/plugins/imagick.ts": "50983cad8e4b97fd6004815bcbeb0fa3e3d332388ecd3bfe6e02a94e5710cef6",
     "https://deno.land/x/lume@v1.16.0/plugins/json.ts": "60f3b8616c282a9c592e1974db143b3461999c55b20235eebced87482ebf16bd",
     "https://deno.land/x/lume@v1.16.0/plugins/jsx.ts": "532a055f1c6c6f00d21d13cb658614d5f6fc56ea28266020d371ba5fb151461a",
@@ -414,11 +416,14 @@
     "https://deno.land/x/nunjucks@3.2.3-2/src/transformer.js": "401e3b1588ea2933883cc43cc329077f5b1a3a5da391f9dfc0a2a63a1a89660c",
     "https://deno.land/x/nunjucks@3.2.3-2/src/waterfall.js": "4d8878b3ebcf0a1b4bf9e7575e2f30bc6467cb8ee3717b80754c945cde661b9e",
     "https://deno.land/x/outdent@v0.8.0/mod.ts": "72630e680dcc36d5ae556fbff6900b12706c81a6fd592345fc98bcc0878fb3ca",
-    "https://deno.land/x/outdent@v0.8.0/src/index.ts": "6dc3df4108d5d6fedcdb974844d321037ca81eaaa16be6073235ff3268841a22"
+    "https://deno.land/x/outdent@v0.8.0/src/index.ts": "6dc3df4108d5d6fedcdb974844d321037ca81eaaa16be6073235ff3268841a22",
+    "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/bash.min.js": "c68e0c10c8e21aa56ae617cea288b30215bc3941c36d11821f89f350628bf377",
+    "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/vim.min.js": "42d834f1f0192e820db1fd85a25ed6c34233c65403c68dd5483bc2d3372dffe0"
   },
   "npm": {
     "specifiers": {
       "date-fns@2.29.3": "date-fns@2.29.3",
+      "highlight.js@11.7.0": "highlight.js@11.7.0",
       "markdown-it-attrs@4.1.6": "markdown-it-attrs@4.1.6_markdown-it@13.0.1",
       "markdown-it-deflist@2.1.0": "markdown-it-deflist@2.1.0",
       "markdown-it@13.0.1": "markdown-it@13.0.1",
@@ -437,6 +442,10 @@
       },
       "entities@3.0.1": {
         "integrity": "sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==",
+        "dependencies": {}
+      },
+      "highlight.js@11.7.0": {
+        "integrity": "sha512-1rRqesRFhMO/PRF+G86evnyJkCgaZFOI+Z6kdj15TA18funfoqJXvgPCLSf0SWq3SRfg1j3HlDs8o4s3EGq1oQ==",
         "dependencies": {}
       },
       "js-tokens@4.0.0": {

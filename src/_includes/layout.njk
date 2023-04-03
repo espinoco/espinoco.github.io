@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Carlo Espino&#39;s Personal Site">
     <title>Carlo Espino</title>
+    <link href="/css/main.css" rel="stylesheet">
     <style>
       body {
         max-width: 50.5em;
@@ -26,20 +27,13 @@
       textarea {
         background-color: rgb(240, 240, 240) !important;
       }
-      blockquote,
-      pre {
+      blockquote {
         background-color: rgb(245, 247, 240) !important;
-      }
-      code {
-        background-color: rgb(237, 252, 237) !important;
       }
       pre {
         white-space: pre-wrap;
         max-width: 60em;
         min-width: 60em;
-      }
-      pre code {
-        background-color: rgb(245, 247, 240) !important;
       }
       h1 .letter,
       h2 .letter,
@@ -75,8 +69,7 @@
           background-color: rgb(58, 58, 58) !important;
           color: rgb(169, 183, 198) !important;
         }
-        blockquote,
-        pre {
+        blockquote {
           background-color: rgb(54, 65, 53) !important;
         }
         h1,
@@ -87,19 +80,11 @@
         h6 {
           color: rgb(169, 183, 198) !important;
         }
-        code {
-          background-color: rgb(54, 65, 53) !important;
-          color: rgb(169, 183, 198) !important;
-        }
-        pre code {
-          background-color: rgb(54, 65, 53) !important;
-        }
       }
       h1 span {
         display: inline-block;
         animation: butterfly 1s infinite;
         animation-delay: calc(.1s * var(--i));
-
       }
       @keyframes butterfly {
         0%,40%,100% {

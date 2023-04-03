@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carlo Espino&#39;s Personal Site">
+    <meta name="description" content="Carlo Espino's Personal Site">
     <title>Carlo Espino</title>
+    <link href="/css/main.css" rel="stylesheet">
     <style>
       body {
         max-width: 50.5em;
@@ -26,20 +26,13 @@
       textarea {
         background-color: rgb(240, 240, 240) !important;
       }
-      blockquote,
-      pre {
+      blockquote {
         background-color: rgb(245, 247, 240) !important;
-      }
-      code {
-        background-color: rgb(237, 252, 237) !important;
       }
       pre {
         white-space: pre-wrap;
         max-width: 60em;
         min-width: 60em;
-      }
-      pre code {
-        background-color: rgb(245, 247, 240) !important;
       }
       h1 .letter,
       h2 .letter,
@@ -75,8 +68,7 @@
           background-color: rgb(58, 58, 58) !important;
           color: rgb(169, 183, 198) !important;
         }
-        blockquote,
-        pre {
+        blockquote {
           background-color: rgb(54, 65, 53) !important;
         }
         h1,
@@ -87,19 +79,11 @@
         h6 {
           color: rgb(169, 183, 198) !important;
         }
-        code {
-          background-color: rgb(54, 65, 53) !important;
-          color: rgb(169, 183, 198) !important;
-        }
-        pre code {
-          background-color: rgb(54, 65, 53) !important;
-        }
       }
       h1 span {
         display: inline-block;
         animation: butterfly 1s infinite;
         animation-delay: calc(.1s * var(--i));
-
       }
       @keyframes butterfly {
         0%,40%,100% {
@@ -121,65 +105,65 @@
         
       </nav>
       <h1>vimrc</h1>
-      <pre><code class="language-vimscript">&quot; syntax highlighting
-syntax on
+      <pre><code class="language-vimscript hljs"><span class="hljs-comment">" syntax highlighting</span>
+<span class="hljs-keyword">syntax</span> <span class="hljs-keyword">on</span>
 
-&quot; show line numbers
-set number
+<span class="hljs-comment">" show line numbers</span>
+<span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span>
 
-&quot; auto indent
-set autoindent
-set smartindent
+<span class="hljs-comment">" auto indent</span>
+<span class="hljs-keyword">set</span> autoindent
+<span class="hljs-keyword">set</span> smartindent
 
-&quot; identation size
-set tabstop=2 &quot; Width of tab character
-set softtabstop=2 &quot; Fine tunes the amount of white space to be added
-set shiftwidth=2 &quot; Determines the amount of whitespace to add in normal mode
+<span class="hljs-comment">" identation size</span>
+<span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">2</span> <span class="hljs-comment">" Width of tab character</span>
+<span class="hljs-keyword">set</span> softtabstop=<span class="hljs-number">2</span> <span class="hljs-comment">" Fine tunes the amount of white space to be added</span>
+<span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span> <span class="hljs-comment">" Determines the amount of whitespace to add in normal mode</span>
 
-&quot; use spaces instead of tabs
-set expandtab
+<span class="hljs-comment">" use spaces instead of tabs</span>
+<span class="hljs-keyword">set</span> expandtab
 
-&quot; use tabs instead of spaces for make files
-autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+<span class="hljs-comment">" use tabs instead of spaces for make files</span>
+<span class="hljs-keyword">autocmd</span> FileType <span class="hljs-keyword">make</span> <span class="hljs-keyword">set</span> noexpandtab <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">8</span> softtabstop=<span class="hljs-number">0</span>
 
-&quot; file formatting
-set fileformat=unix
-set fileformats=unix,dos
-set encoding=utf-8  &quot; The encoding displayed
-set fileencoding=utf-8  &quot; The encoding written to file
+<span class="hljs-comment">" file formatting</span>
+<span class="hljs-keyword">set</span> fileformat=unix
+<span class="hljs-keyword">set</span> fileformats=unix,dos
+<span class="hljs-keyword">set</span> encoding=utf-<span class="hljs-number">8</span>  <span class="hljs-comment">" The encoding displayed</span>
+<span class="hljs-keyword">set</span> fileencoding=utf-<span class="hljs-number">8</span>  <span class="hljs-comment">" The encoding written to file</span>
 
-&quot; trim trailing whitespaces
-autocmd BufWritePre * :%s/\s\+$//e
+<span class="hljs-comment">" trim trailing whitespaces</span>
+<span class="hljs-keyword">autocmd</span> BufWritePre * :%s/\s\+$//<span class="hljs-keyword">e</span>
 
-&quot; tell vim to keep a backup file
-set backup
+<span class="hljs-comment">" tell vim to keep a backup file</span>
+<span class="hljs-keyword">set</span> backup
 
-&quot; tell vim where to put its backup and swap files
-if has('win32') || has ('win64')
-  &quot; backup files
-  set backupdir=C:\\Temp
-  &quot; swap files
-  set dir=C:\\Temp
-else
-  &quot; backup files
-  set backupdir=/private/tmp
-  &quot; swap files
-  set dir=/private/tmp
-endif
+<span class="hljs-comment">" tell vim where to put its backup and swap files</span>
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">has</span>(<span class="hljs-string">'win32'</span>) || <span class="hljs-built_in">has</span> (<span class="hljs-string">'win64'</span>)
+  <span class="hljs-comment">" backup files</span>
+  <span class="hljs-keyword">set</span> backupdir=C:\\Temp
+  <span class="hljs-comment">" swap files</span>
+  <span class="hljs-keyword">set</span> dir=C:\\Temp
+<span class="hljs-keyword">else</span>
+  <span class="hljs-comment">" backup files</span>
+  <span class="hljs-keyword">set</span> backupdir=/private/tmp
+  <span class="hljs-comment">" swap files</span>
+  <span class="hljs-keyword">set</span> dir=/private/tmp
+<span class="hljs-keyword">endif</span>
 
-&quot; enable mouse click navigation
-set mouse=a
+<span class="hljs-comment">" enable mouse click navigation</span>
+<span class="hljs-keyword">set</span> mouse=<span class="hljs-keyword">a</span>
 
-&quot; Change cursor shape in different modes
-let &amp;t_SI.=&quot;\e[5 q&quot; &quot;SI = INSERT mode
-let &amp;t_SR.=&quot;\e[4 q&quot; &quot;SR = REPLACE mode
-let &amp;t_EI.=&quot;\e[1 q&quot; &quot;EI = NORMAL mode (ELSE)
+<span class="hljs-comment">" Change cursor shape in different modes</span>
+<span class="hljs-keyword">let</span> &amp;t_SI.=<span class="hljs-string">"\e[5 q"</span> <span class="hljs-comment">"SI = INSERT mode</span>
+<span class="hljs-keyword">let</span> &amp;t_SR.=<span class="hljs-string">"\e[4 q"</span> <span class="hljs-comment">"SR = REPLACE mode</span>
+<span class="hljs-keyword">let</span> &amp;t_EI.=<span class="hljs-string">"\e[1 q"</span> <span class="hljs-comment">"EI = NORMAL mode (ELSE)</span>
 
-&quot; Instant cursor shape change in different modes
-set ttimeout
-set ttimeoutlen=1
-set listchars=tab:&gt;-,trail:~,extends:&gt;,precedes:&lt;,space:.
-set ttyfast
+<span class="hljs-comment">" Instant cursor shape change in different modes</span>
+<span class="hljs-keyword">set</span> ttimeout
+<span class="hljs-keyword">set</span> ttimeoutlen=<span class="hljs-number">1</span>
+<span class="hljs-keyword">set</span> listchars=<span class="hljs-keyword">tab</span>:&gt;-,trail:~,extends:&gt;,precedes:&lt;,space:.
+<span class="hljs-keyword">set</span> ttyfast
 </code></pre>
 
     </main>
@@ -201,5 +185,6 @@ set ttyfast
           console.log("Watch the headings on the page!");
       }
     </script>
-  </body>
-</html>
+  
+
+</body></html>
