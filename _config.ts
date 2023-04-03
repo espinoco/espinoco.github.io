@@ -23,6 +23,5 @@ site.use(
     }
   })
 );
-site.copy("css");
 
 export default site;
