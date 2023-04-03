@@ -1,2 +1,86 @@
 @import url('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github-dark.min.css') screen and (prefers-color-scheme: dark);
 @import url('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github.min.css') screen and (prefers-color-scheme: light);
+body {
+  max-width: 50.5em;
+  margin: 0 auto;
+}
+.content {
+  margin: 0.8em;
+}
+a {
+  color: rgb(0, 0, 225) !important;
+}
+a:visited {
+  color: rgb(0, 116, 191) !important;
+}
+html {
+  background-color: rgb(255, 255, 255) !important;
+}
+input,
+textarea {
+  background-color: rgb(240, 240, 240) !important;
+}
+blockquote {
+  background-color: rgb(245, 247, 240) !important;
+}
+pre {
+  white-space: pre-wrap;
+  max-width: 60em;
+  min-width: 60em;
+}
+nav {
+  border-bottom: 0.1em dashed;
+  border-top: 0.1em dashed;
+  padding: 1em;
+}
+nav a {
+  margin-right: 1em;
+}
+@media (prefers-color-scheme: dark) {
+  a {
+    color: rgb(88, 157, 246) !important;
+  }
+  a:visited {
+    color: rgb(168, 192, 35) !important;
+  }
+  body {
+    color: rgb(169, 183, 198) !important;
+  }
+  html {
+    background-color: rgb(43, 43, 43) !important;
+  }
+  input,
+  textarea {
+    background-color: rgb(58, 58, 58) !important;
+    color: rgb(169, 183, 198) !important;
+  }
+  blockquote {
+    background-color: rgb(54, 65, 53) !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: rgb(169, 183, 198) !important;
+  }
+}
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  display: inline-block;
+  animation: butterfly 1s infinite;
+  animation-delay: calc(.1s * var(--i));
+}
+@keyframes butterfly {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}
