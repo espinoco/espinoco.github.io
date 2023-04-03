@@ -1,1 +1,7 @@
 layout: layout.njk
+metas:
+  site: Carlo Espino's Personal Site
+  lang: en
+  title: "=title"
+  twitter: "@croespino"
+  generator: true

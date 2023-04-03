@@ -2,6 +2,7 @@ import lume from "lume/mod.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import codeHighlight from "lume/plugins/code_highlight.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import metas from "lume/plugins/metas.ts";
 
 import lang_bash from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/bash.min.js";
 import lang_vimscript from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/vim.min.js";
@@ -26,5 +27,6 @@ site.use(
   })
 );
 site.use(sitemap());
+site.use(metas());
 
 export default site;
