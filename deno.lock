@@ -368,6 +368,7 @@
     "https://deno.land/x/lume@v1.16.0/deps/outdent.ts": "9d249cac81da3e2d86b1cdfaea0a056be54022c4e938efeef78a53a288474c32",
     "https://deno.land/x/lume@v1.16.0/deps/path.ts": "9d4949e743149fa4183ec8b1608002f25c22db979c90d5a7c0d4b83ba88d5aa9",
     "https://deno.land/x/lume@v1.16.0/deps/react.ts": "6ce99e14ad6bd9ce09f69c90b5a5597e44be78eab7f334bcab31f4824b12536a",
+    "https://deno.land/x/lume@v1.16.0/deps/unidecode.ts": "7479d3695704320279c8c3468ec4801a70064a7471f9974e04c45852ca882769",
     "https://deno.land/x/lume@v1.16.0/deps/yaml.ts": "1ad8014c6360ec7c2b2d3ae7f4be4a517964e3a96662011fcd552051c0bf0234",
     "https://deno.land/x/lume@v1.16.0/middlewares/logger.ts": "69e69099a2e3a8c62d0bb62014381337f6e855c6b330e210e4a705fe8111e10a",
     "https://deno.land/x/lume@v1.16.0/middlewares/no_cache.ts": "95fb11d820d931b6aca268fa30aee22e315c556bd214e135bb9b5ddbcbe039d6",
@@ -384,6 +385,7 @@
     "https://deno.land/x/lume@v1.16.0/plugins/nunjucks.ts": "6d66887a15cd23793f95e9d38df0b77a55b4b037dd743076556d5c54e2953376",
     "https://deno.land/x/lume@v1.16.0/plugins/paginate.ts": "e997b33da12da9d68b72d0c7615ec49d0e187012e8ffc78dac2b558edf27f795",
     "https://deno.land/x/lume@v1.16.0/plugins/search.ts": "63b29bf31dfdb4cb9146b5e82c5d86190507842f5da0b85be9ed310c15752076",
+    "https://deno.land/x/lume@v1.16.0/plugins/slugify_urls.ts": "321ab12f08f82711135699dc85f6d530a73c105dd87ae50a9b70505df556b767",
     "https://deno.land/x/lume@v1.16.0/plugins/source_maps.ts": "3d3d97691937019949fa791dbd61002c42d918d07cc7cc37028c5018b9aa1bc4",
     "https://deno.land/x/lume@v1.16.0/plugins/url.ts": "43d3d47896a7322a8dd34572dedb4baa6f73a382594a2ff7c34a3a064dcc6c9e",
     "https://deno.land/x/lume@v1.16.0/plugins/yaml.ts": "df24aac4098dba258f1ac331a3b16ba488a336eb63c51afed8f59201228d583c",
@@ -421,7 +423,8 @@
       "markdown-it-deflist@2.1.0": "markdown-it-deflist@2.1.0",
       "markdown-it@13.0.1": "markdown-it@13.0.1",
       "react-dom@18.2.0": "react-dom@18.2.0_react@18.2.0",
-      "react@18.2.0": "react@18.2.0"
+      "react@18.2.0": "react@18.2.0",
+      "unidecode@0.1.8": "unidecode@0.1.8"
     },
     "packages": {
       "argparse@2.0.1": {
@@ -498,6 +501,10 @@
       },
       "uc.micro@1.0.6": {
         "integrity": "sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==",
+        "dependencies": {}
+      },
+      "unidecode@0.1.8": {
+        "integrity": "sha512-SdoZNxCWpN2tXTCrGkPF/0rL2HEq+i2gwRG1ReBvx8/0yTzC3enHfugOf8A9JBShVwwrRIkLX0YcDUGbzjbVCA==",
         "dependencies": {}
       }
     }

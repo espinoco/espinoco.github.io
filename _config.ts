@@ -1,4 +1,5 @@
 import lume from "lume/mod.ts";
+import slugifyUrls from "lume/plugins/slugify_urls.ts";
 
 const site = lume({
   src: "./src",
@@ -9,5 +10,6 @@ const site = lume({
   }
 });
 site.copy("CNAME");
+site.use(slugifyUrls()); // Slugify all page URLs to remove potentially conflicting characters
 
 export default site;
