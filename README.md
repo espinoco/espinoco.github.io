@@ -33,6 +33,7 @@ There are two kinds of pages, the nav pages and the non-nav pages. The nav pages
 - [Code Highlight](https://lume.land/plugins/code_highlight/): uses the highlight.js library to search and highlight the syntax code of any `<pre><code>` element.
 - [Sitemap](https://lume.land/plugins/sitemap/): generates a sitemap.xml file automatically with all your pages, which is useful for SEO. It also creates a robots.txt
 - [Metas](https://lume.land/plugins/metas/): generates `<meta>` tags in your HTML pages for Open graph, Twitter cards, Schema.org, and SEO purposes.
+- Internal Links: custom plugin WIP under `plugins/internal_links.ts` to implement WikiLinks (Internal Links) preprocessing for markdown files.
 
 ## Deployment
 
