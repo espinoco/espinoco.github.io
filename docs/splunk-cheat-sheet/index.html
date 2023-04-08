@@ -147,6 +147,7 @@
 <li><code>&lt;query&gt; | timechart count by &lt;field&gt;</code>  - visualize graph count of events by some specific field</li>
 <li><code>&lt;query&gt; earliest=-&lt;time&gt;</code> - query from the last specified amount of time, e.g., <code>earliest=-14d</code> to query from the last 14 days</li>
 <li><code>&lt;query&gt; | tail 1</code> - get first event</li>
+<li><code>&lt;query&gt; | rex field=&lt;field&gt; "(?&lt;&lt;new-field-name&gt;&lt;regex-exp&gt;)" </code> - extract custom value based on the regex expression <code>&lt;regex-exp&gt;</code>, assign a new name to the field to be extracted with <code>&lt;new-field-name&gt;</code>. Run the regex on the <code>&lt;field&gt;</code>, use <code>_raw</code>  as <code>&lt;field&gt;</code> value to get the whole raw data event.</li>
 </ul>
 
     </main>

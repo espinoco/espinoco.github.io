@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Carlo Espino's Personal Site">
-    <title>IntelliJ IDEA Cheat Sheet</title>
+    <title>aws cli Cheat Sheet</title>
     <style>
       /* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github.min.css */
       pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
@@ -123,12 +123,12 @@
   <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carlo Espino's Personal Site">
 <meta property="og:locale" content="en">
-<meta property="og:title" content="IntelliJ IDEA Cheat Sheet">
-<meta property="og:url" content="https://carloespino.com/intellij-idea-cheat-sheet/">
-<meta name="twitter:title" content="IntelliJ IDEA Cheat Sheet">
+<meta property="og:title" content="aws cli Cheat Sheet">
+<meta property="og:url" content="https://carloespino.com/aws-cli-cheat-sheet/">
+<meta name="twitter:title" content="aws cli Cheat Sheet">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@croespino">
-<meta itemprop="name" content="IntelliJ IDEA Cheat Sheet">
+<meta itemprop="name" content="aws cli Cheat Sheet">
 <meta name="generator" content="Lume v1.16.2">
 </head>
   <body>
@@ -140,11 +140,10 @@
         <a href="/about/" rel="noreferrer noopener">/about</a>
         
       </nav>
-      <h1>IntelliJ IDEA Cheat Sheet</h1>
+      <h1>aws cli Cheat Sheet</h1>
       <ul>
-<li><code>⇧ ⌘ R</code> - To open the search and replace dialog to replace content across all the files in a project.</li>
-<li>Enable Git staging - To enable git staging, <code>⇧ ⌘ A</code> &gt; <code>Git: Enable staging area</code> &gt; <code>ON</code>.</li>
-<li>Ensure no line break at the end of file after save, useful for some file types and projects - IntelliJ &gt; Settings &gt; Editor &gt; General &gt; uncheck "Ensure every saved file ends with a line break"</li>
+<li><code>aws ec2 describe-instances --filters Name=tag:aws:cloudformation:stack-name,Values='&lt;cloud-formation-stack-name&gt;' --query "Reservations[].Instances[?State.Name == 'running'].[InstanceId]" --output text</code> - Find running instance IDs by its cloud formation stack name, where <code>&lt;cloud-formation-stack-name&gt;</code> is the cloud formation stack name.</li>
+<li><code>aws ssm start-session --target &lt;instance-ID&gt;</code> - SSH into the AWS instance by instance ID, where <code>&lt;instance-ID&gt;</code> is the instance ID.</li>
 </ul>
 
     </main>

@@ -7,3 +7,4 @@ title: Splunk Cheat Sheet
 - `<query> | timechart count by <field>`  - visualize graph count of events by some specific field
 - `<query> earliest=-<time>` - query from the last specified amount of time, e.g., `earliest=-14d` to query from the last 14 days
 - `<query> | tail 1` - get first event
+- `<query> | rex field=<field> "(?<<new-field-name><regex-exp>)" ` - extract custom value based on the regex expression `<regex-exp>`, assign a new name to the field to be extracted with `<new-field-name>`. Run the regex on the `<field>`, use `_raw`  as `<field>` value to get the whole raw data event.
