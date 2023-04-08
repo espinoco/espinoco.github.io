@@ -148,8 +148,13 @@
 <li>Requires <code>stty -ixon</code></li>
 </ul>
 </li>
-<li><code>set -o vi</code> - Allows bash command prompt to work like vi, useful while on an SSH session where you don't have this permanent setting in the <a href="/inputrc/">inputrc</a>.</li>
+<li><code>set -o vi</code> - Allows bash command prompt to work like vi, useful while on an SSH session where you can't have that permanent setting in the <a href="/inputrc/">.inputrc file</a>.
+<ul>
+<li><code>bind '"\C-i":complete'</code> - in case the tab autocompletion stops working after setting the vi editing mode.</li>
+</ul>
+</li>
 <li><code>bash -l</code> - to reload <code>~/.bash_profile</code></li>
+<li><a href="/bash-profile/">bash_profile</a> - bash configuration settings.</li>
 </ul>
 
     </main>
