@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Carlo Espino's Personal Site">
-    <title>Carlo Espino's Personal Site</title>
+    <title>Bash quick reference</title>
     <style>
       /* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github.min.css */
       pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
@@ -123,12 +123,12 @@
   <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carlo Espino's Personal Site">
 <meta property="og:locale" content="en">
-<meta property="og:title" content="Carlo Espino's Personal Site">
-<meta property="og:url" content="https://carloespino.com/">
-<meta name="twitter:title" content="Carlo Espino's Personal Site">
+<meta property="og:title" content="Bash quick reference">
+<meta property="og:url" content="https://carloespino.com/bash-quick-reference/">
+<meta name="twitter:title" content="Bash quick reference">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@croespino">
-<meta itemprop="name" content="Carlo Espino's Personal Site">
+<meta itemprop="name" content="Bash quick reference">
 <meta name="generator" content="Lume v1.16.2">
 </head>
   <body>
@@ -140,42 +140,21 @@
         <a href="/about/" rel="noreferrer noopener">/about</a>
         
       </nav>
-      <h1>Carlo Espino's Personal Site</h1>
-      <h2>Pages</h2>
+      <h1>Bash quick reference</h1>
+      <ul>
+<li><code>C-r</code> - Search bash history backwards</li>
+<li><code>C-s</code> - Search bash history forward
 <ul>
-  
-  <li><a href="/bash-quick-reference/" rel="noreferrer noopener">Bash quick reference</a></li>
-  
-  <li><a href="/git-quick-reference/" rel="noreferrer noopener">Git quick reference</a></li>
-  
-  <li><a href="/homebrew-quick-reference/" rel="noreferrer noopener">Homebrew quick reference</a></li>
-  
-  <li><a href="/intellij-idea-quick-reference/" rel="noreferrer noopener">IntelliJ IDEA quick reference</a></li>
-  
-  <li><a href="/password-generation-quick-reference/" rel="noreferrer noopener">Password generation quick reference</a></li>
-  
-  <li><a href="/slack-quick-reference/" rel="noreferrer noopener">Slack quick reference</a></li>
-  
-  <li><a href="/splunk-quick-reference/" rel="noreferrer noopener">Splunk quick reference</a></li>
-  
-  <li><a href="/terminal-quick-reference/" rel="noreferrer noopener">Terminal quick reference</a></li>
-  
-  <li><a href="/use-postman-to-convert-request-to-curl/" rel="noreferrer noopener">Use Postman to convert request to CURL</a></li>
-  
-  <li><a href="/vim-quick-reference/" rel="noreferrer noopener">Vim quick reference</a></li>
-  
-  <li><a href="/aws-cli-quick-reference/" rel="noreferrer noopener">aws cli quick reference</a></li>
-  
-  <li><a href="/bash-profile/" rel="noreferrer noopener">bash_profile</a></li>
-  
-  <li><a href="/gitconfig/" rel="noreferrer noopener">gitconfig</a></li>
-  
-  <li><a href="/inputrc/" rel="noreferrer noopener">inputrc</a></li>
-  
-  <li><a href="/vimdiff-quick-reference/" rel="noreferrer noopener">vimdiff quick reference</a></li>
-  
-  <li><a href="/vimrc/" rel="noreferrer noopener">vimrc</a></li>
-  
+<li>Requires <code>stty -ixon</code></li>
+</ul>
+</li>
+<li><code>set -o vi</code> - Allows bash command prompt to work like vi, useful while on an SSH session where you can't have that permanent setting in the <a href="/inputrc/">.inputrc file</a>.
+<ul>
+<li><code>bind '"\C-i":complete'</code> - in case the tab autocompletion stops working after setting the vi editing mode.</li>
+</ul>
+</li>
+<li><code>bash -l</code> - to reload <code>~/.bash_profile</code></li>
+<li><a href="/bash-profile/">bash_profile</a> - bash configuration settings.</li>
 </ul>
 
     </main>
