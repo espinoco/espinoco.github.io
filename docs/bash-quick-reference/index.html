@@ -142,19 +142,20 @@
       </nav>
       <h1>Bash quick reference</h1>
       <ul>
-<li><code>C-r</code> - Search bash history backwards</li>
-<li><code>C-s</code> - Search bash history forward
-<ul>
-<li>Requires <code>stty -ixon</code></li>
-</ul>
-</li>
-<li><code>set -o vi</code> - Allows bash command prompt to work like vi, useful while on an SSH session where you can't have that permanent setting in the <a href="/inputrc/">.inputrc file</a>.
-<ul>
-<li><code>bind '"\C-i":complete'</code> - in case the tab autocompletion stops working after setting the vi editing mode.</li>
-</ul>
-</li>
-<li><code>bash -l</code> - to reload <code>~/.bash_profile</code></li>
 <li><a href="/bash-profile/">bash_profile</a> - bash configuration settings.</li>
+<li><code>C-r</code> - Search bash history backwards.</li>
+<li><code>C-s</code> - Search bash history forward.
+<ul>
+<li>Requires <code>stty -ixon</code>.</li>
+</ul>
+</li>
+<li><code>C-x C-e</code> - Invoke an editor and execute the result as commands. If using vi mode, hit <code>v</code> instead while in command mode. Set vi mode in the <a href="/inputrc/">.inputrc file</a>.
+<ul>
+<li><code>export EDITOR=vi</code> - in case you get an emacs error while on an SSH session.</li>
+</ul>
+</li>
+<li><code>pwd</code> - print the current directory's full path.</li>
+<li><code>&lt;command&gt; | pbcopy</code> - copy the output of the <code>&lt;command&gt;</code> to the clipboard (macOS only).</li>
 </ul>
 
     </main>

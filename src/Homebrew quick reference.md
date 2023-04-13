@@ -2,7 +2,8 @@
 title: Homebrew quick reference
 ---
 
-- `brew doctor` - check Homebrew's heatlh
-- `brew search <package>`
-- `brew info <package>` - get useful information from the package
-- `brew upgrade <package>` 
+- `brew doctor` - verify brew's health.
+- `brew search <package>` - search the `<package>` formula.
+- `brew info <package>` - get `<package>` information. 
+- `brew install <package>` 
+- `brew upgrade <package>`  

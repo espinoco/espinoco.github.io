@@ -141,23 +141,26 @@
         
       </nav>
       <h1>inputrc</h1>
-      <pre><code class="language-bash hljs"><span class="hljs-variable">$if</span> Bash
-    <span class="hljs-comment"># Allow bash command prompt to work like vi. Similar to Ctrl-X Ctrl-E while on the default emacs mode, you can hit `v` while in the vi command mode</span>
+      <pre><code class="language-bash hljs"><span class="hljs-comment"># REQUIRES THE LATEST VERSION OF BASH</span>
+
+<span class="hljs-variable">$if</span> Bash
+    <span class="hljs-comment"># Allow bash command prompt to work like vi.</span>
+    <span class="hljs-comment"># Like Ctrl-X Ctrl-E, you can hit `v` while in the vi command mode.</span>
     <span class="hljs-built_in">set</span> editing-mode vi
 <span class="hljs-variable">$endif</span>
 
 <span class="hljs-variable">$if</span> mode=vi
-    <span class="hljs-comment"># Allow to display the vi current mode in the prompt</span>
+    <span class="hljs-comment"># Allow to display the vi current mode in the prompt.</span>
     <span class="hljs-built_in">set</span> show-mode-in-prompt on
-    <span class="hljs-comment"># Set the cursor as vertical bar while on insert mode</span>
+    <span class="hljs-comment"># Set the cursor as vertical bar while on insert mode.</span>
     <span class="hljs-built_in">set</span> vi-ins-mode-string \1\e[6 q\2
-    <span class="hljs-comment"># Set the cursor as block while on command mode</span>
+    <span class="hljs-comment"># Set the cursor as block while on command mode.</span>
     <span class="hljs-built_in">set</span> vi-cmd-mode-string \1\e[2 q\2
-    <span class="hljs-comment"># Switch to block cursor before executing a command. Otherwise, cursor will stay as vertical bar (insert mode) after opening a file with vi</span>
+    <span class="hljs-comment"># Switch to block cursor before executing a command. Otherwise, cursor will stay as vertical</span>
+    <span class="hljs-comment"># bar (insert mode) after opening a file with vi.</span>
     <span class="hljs-built_in">set</span> keymap vi-insert
     RETURN: <span class="hljs-string">"\e\n"</span>
 <span class="hljs-variable">$endif</span>
-
 </code></pre>
 
     </main>

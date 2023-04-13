@@ -142,8 +142,8 @@
       </nav>
       <h1>aws cli quick reference</h1>
       <ul>
-<li><code>aws ec2 describe-instances --filters Name=tag:aws:cloudformation:stack-name,Values='&lt;cloud-formation-stack-name&gt;' --query "Reservations[].Instances[?State.Name == 'running'].[InstanceId]" --output text</code> - Find running EC2 instance IDs by its cloud formation stack name <code>&lt;cloud-formation-stack-name&gt;</code>.</li>
-<li><code>aws ssm start-session --target &lt;instance-ID&gt;</code> - SSH into an AWS instance its instance ID <code>&lt;instance-ID&gt;</code>.</li>
+<li><code>aws ec2 describe-instances --filters Name=tag:aws:cloudformation:stack-name,Values='&lt;cloud-formation-stack-name&gt;' --query "Reservations[].Instances[?State.Name == 'running'].[InstanceId]" --output text</code> - Find running EC2 instance IDs by its <code>&lt;cloud-formation-stack-name&gt;</code>.</li>
+<li><code>aws ssm start-session --target &lt;instance-ID&gt;</code> - SSH into an the <code>&lt;instance-ID&gt;</code>.</li>
 </ul>
 
     </main>
