@@ -5,3 +5,4 @@ metas:
   title: "=title"
   twitter: "@croespino"
   generator: true
+  icon: favicon.svg

@@ -18,6 +18,7 @@ const site = lume({
   location: new URL("https://carloespino.com") // needed for sitemap to set the url
 });
 site.copy("CNAME");
+site.copy("favicon.svg");
 site.use(slugifyUrls()); // Slugify all page URLs to remove potentially conflicting characters
 site.use(
   codeHighlight({
