@@ -6,7 +6,6 @@ nav_text: /home
 nav_order: 0
 ---
 
-<h2>Pages</h2>
 <ul>
   {% for page in search.pages("is_nav_page!=true", "title") %}
   <li><a href="{{ page.data.url }}" rel="noreferrer noopener">{{ page.data.title }}</a></li>
