@@ -1,6 +1,8 @@
 ---
 title: gitconfig
 ---
+I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]]'s Git built-in features for reviewing changes and interactive staging, and the Git cli for all other tasks. I use this gitconfig professionally, it is a creation I carefully produced and organized.
+
 ```ini
 [alias]
     # status
@@ -27,11 +29,16 @@ title: gitconfig
     # branch-rename: renames a branch.
     br = !git branch -m
 
-    # fetch-branch: fetches a branch read from input from the remote and checks it out.
-    fb = !git fetch $(git remote) $1 && git checkout -b $1 $(git remote)/$1 && :
-
-    # push-branch: pushes the current branch to its push remote.
-    pb = !git push $(git remote) $(git branch --show-current)
+    # branch-create: creates a branch with name read from input, it first checks if there is any
+    #     change that isn't committed. Optionally, the second input argument specifies the revision
+    #     the branch will be based on.
+    bc = "!if [[ -z $(git status -s) ]]; then \
+               if [[ -z "$1" ]]; then \
+                   echo \"usage: git bc <new-branch-name> [<revision-branch-is-based-on>]\"; \
+               else \
+                   git checkout -b $1 $2; \
+               fi; \
+           else git status; fi" && :
 
     # branch-spinoff: creates a new branch based on a remote branch using the push remote,
     #     it first checks if there is any change that isn't committed. Example: git bs feat master,
@@ -44,6 +51,12 @@ title: gitconfig
                    git checkout -b $1 $(git remote)/$2; \
                fi; \
            else git status; fi" && :
+
+    # fetch-branch: fetches a branch read from input from the remote and checks it out.
+    fb = !git fetch $(git remote) $1 && git checkout -b $1 $(git remote)/$1 && :
+
+    # push-branch: pushes the current branch to its push remote.
+    pb = !git push $(git remote) $(git branch --show-current)
 
     # stash-create: creates a stash of the index and working tree. The stash name includes the
     #    current date and time stamp, and it takes an optional description read from input.

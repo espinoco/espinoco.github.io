@@ -150,7 +150,8 @@
         
       </nav>
       <h1>gitconfig</h1>
-      <pre><code class="language-ini hljs"><span class="hljs-section">[alias]</span>
+      <p>I think the Git command line is the best Git client. I use <a href="/intellij-idea-quick-reference/">IntelliJ IDEA</a>'s Git built-in features for reviewing changes and interactive staging, and the Git cli for all other tasks. I use this gitconfig professionally, it is a creation I carefully produced and organized.</p>
+<pre><code class="language-ini hljs"><span class="hljs-section">[alias]</span>
     <span class="hljs-comment"># status</span>
     <span class="hljs-attr">g</span> = status
 
@@ -175,11 +176,16 @@
     <span class="hljs-comment"># branch-rename: renames a branch.</span>
     <span class="hljs-attr">br</span> = !git branch -m
 
-    <span class="hljs-comment"># fetch-branch: fetches a branch read from input from the remote and checks it out.</span>
-    <span class="hljs-attr">fb</span> = !git fetch $(git remote) <span class="hljs-variable">$1</span> &amp;&amp; git checkout -b <span class="hljs-variable">$1</span> $(git remote)/<span class="hljs-variable">$1</span> &amp;&amp; :
-
-    <span class="hljs-comment"># push-branch: pushes the current branch to its push remote.</span>
-    <span class="hljs-attr">pb</span> = !git push $(git remote) $(git branch --show-current)
+    <span class="hljs-comment"># branch-create: creates a branch with name read from input, it first checks if there is any</span>
+    <span class="hljs-comment">#     change that isn't committed. Optionally, the second input argument specifies the revision</span>
+    <span class="hljs-comment">#     the branch will be based on.</span>
+    <span class="hljs-attr">bc</span> = <span class="hljs-string">"!if [[ -z $(git status -s) ]]; then \
+               if [[ -z "</span><span class="hljs-variable">$1</span><span class="hljs-string">" ]]; then \
+                   echo \"usage: git bc &lt;new-branch-name&gt; [&lt;revision-branch-is-based-on&gt;]\"; \
+               else \
+                   git checkout -b $1 $2; \
+               fi; \
+           else git status; fi"</span> &amp;&amp; :
 
     <span class="hljs-comment"># branch-spinoff: creates a new branch based on a remote branch using the push remote,</span>
     <span class="hljs-comment">#     it first checks if there is any change that isn't committed. Example: git bs feat master,</span>
@@ -192,6 +198,12 @@
                    git checkout -b $1 $(git remote)/$2; \
                fi; \
            else git status; fi"</span> &amp;&amp; :
+
+    <span class="hljs-comment"># fetch-branch: fetches a branch read from input from the remote and checks it out.</span>
+    <span class="hljs-attr">fb</span> = !git fetch $(git remote) <span class="hljs-variable">$1</span> &amp;&amp; git checkout -b <span class="hljs-variable">$1</span> $(git remote)/<span class="hljs-variable">$1</span> &amp;&amp; :
+
+    <span class="hljs-comment"># push-branch: pushes the current branch to its push remote.</span>
+    <span class="hljs-attr">pb</span> = !git push $(git remote) $(git branch --show-current)
 
     <span class="hljs-comment"># stash-create: creates a stash of the index and working tree. The stash name includes the</span>
     <span class="hljs-comment">#    current date and time stamp, and it takes an optional description read from input.</span>
