@@ -2,6 +2,7 @@
 title: Vim quick reference
 ---
 
-- `gx` - Open URL under cursor with the default browser.
+- `gx` - Open the URL under the cursor with the default browser.
+- `:history /` - find previous search commands.
 - [[vimrc]] - vim configuration settings.
 - [[vimdiff quick reference]]

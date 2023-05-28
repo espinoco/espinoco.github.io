@@ -2,6 +2,6 @@
 title: vimdiff quick reference
 ---
 
-- `vimdiff <file1> <file2>` - usage.
+- `vimdiff <file-path> [<file-paths>...]` 
 - `]c` - next diff.
 - `[c` - prev diff.

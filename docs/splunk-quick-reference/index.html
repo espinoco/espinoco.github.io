@@ -151,20 +151,38 @@
       </nav>
       <h1>Splunk quick reference</h1>
       <ul>
-<li><code>&lt;query&gt; | timechart count</code> - visualize graph count of logs.</li>
-<li><code>&lt;query&gt; | timechart span=&lt;time&gt; count</code> - same as above but with time span specified, e.g., <code>span=1m</code> to get time span of 1 minute.</li>
-<li><code>&lt;query&gt; | timechart count by &lt;field&gt;</code>  - visualize graph count of events by some specific field.</li>
-<li><code>&lt;query&gt; earliest=-&lt;time&gt;</code> - query from the last specified amount of time, e.g., <code>earliest=-10d</code> to query from the last 10 days.</li>
-<li><code>&lt;query&gt; | tail 1</code> - get first event.</li>
-<li><code>&lt;query&gt; | rex field=&lt;field&gt; "(?&lt;&lt;new-field-name&gt;&lt;regex-exp&gt;)" </code> - extract custom field value based on the regex expression <code>&lt;regex-exp&gt;</code> match, assign a new name to the field to be extracted with <code>&lt;new-field-name&gt;</code>. Run the regex on the <code>&lt;field&gt;</code>, use <code>_raw</code>  as <code>&lt;field&gt;</code> value to get the whole raw data event, e.g.
+<li><code>&lt;query&gt; | timechart [span=&lt;time&gt;] count [by &lt;field&gt;]</code> - visualize time graph count of logs.
 <ul>
-<li><code>&lt;query&gt; | rex field=_raw "Read Timeout of (?&lt;Timeout&gt;[0-9]+) for (?&lt;Source&gt;[A-Z]+)" | &lt;use-Timeout-or-Source-vars&gt;</code></li>
+<li><code>&lt;time&gt;</code> examples: <code>1m</code>, <code>1h</code>, <code>10d</code></li>
 </ul>
 </li>
-<li><code>&lt;query&gt; | eval &lt;new-custom-field&gt; = &lt;existing-fields&gt;</code> - create new custom field based on existing fields <code>&lt;existing-field-0&gt;</code> and <code>&lt;existing-field-1&gt;</code>.</li>
-<li><code>&lt;query&gt; | eval &lt;new-custom-field-name&gt; = &lt;existing-field-0&gt;."-".&lt;existing-field-1&gt;</code> - concatenate two fields into a string.</li>
-<li><code>```&lt;comment&gt;```</code> - add <code>&lt;comment&gt;</code> to the search query.</li>
-<li>To quickly add a field to the search, hover over the field and click the highlighted portion you need, a pop up will appear with options including adding the field to your search query.</li>
+<li><code>&lt;query&gt; earliest=-&lt;time&gt;</code> - query from the last specified amount of <code>&lt;time&gt;</code>.
+<ul>
+<li><code>&lt;time&gt;</code> examples: <code>1m</code>, <code>1h</code>, <code>10d</code></li>
+</ul>
+</li>
+<li><code>&lt;query&gt; | tail 1</code> - get the tail event.</li>
+<li><code>.</code> - to concat field values, e.g., <code>&lt;field0&gt;."-".&lt;field1&gt;</code></li>
+<li><code>&lt;query&gt; | eval &lt;new-field&gt; = &lt;value&gt;</code> - create new field.</li>
+<li>Extract custom field based on regex expression examples:
+<ol>
+<li><code>&lt;query&gt; | rex field=&lt;field&gt; "Read Timeout of (?&lt;Timeout&gt;[0-9]+) for (?&lt;Source&gt;[A-Z]+)"</code>
+<ul>
+<li>Extracts the new fields <code>Timeout</code> and <code>Source</code> from the <code>&lt;field&gt;</code>'s value.</li>
+</ul>
+</li>
+<li><code>&lt;query&gt; | rex field=&lt;field&gt; ".*\.(?&lt;Value&gt;.*)"</code>
+<ul>
+<li>Extracts the new <code>Value</code> field.</li>
+</ul>
+</li>
+<li><code>&lt;query&gt; | rex field=_raw "(?&lt;ExceptionType&gt;(com|java|javax|org)\.[\w\.]+StateException)"</code>
+<ul>
+<li>Use <code>_raw</code> to get the whole log instead of field specific.</li>
+</ul>
+</li>
+</ol>
+</li>
 </ul>
 
     </main>
