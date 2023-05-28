@@ -14,4 +14,4 @@ title: Tips for writing communication
 
 ## Additional tips for instant messaging
 
-- [Don't say just "Hello" In instant messaging](https://nohello.net/)
+- [Don't say just "Hello" in instant messaging](https://nohello.net/)

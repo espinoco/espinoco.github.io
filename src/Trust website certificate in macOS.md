@@ -4,6 +4,7 @@ title: Trust website certificate in macOS
 Valid use cases I came across for doing this:
 1. Enabling HTTPS for router's LAN web access.
 
+Steps:
 - Browse to the website in Safari.
 - There will be a prompt alert about the website's certificate.
 - Click on "Show certificate".
