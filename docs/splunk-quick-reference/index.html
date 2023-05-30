@@ -156,20 +156,20 @@
       </nav>
       <h1>Splunk quick reference</h1>
       <ul>
-<li><code>&lt;query&gt; | timechart [span=&lt;time&gt;] count [by &lt;field&gt;]</code> - visualize time graph count of logs.
+<li><code>&lt;query&gt; | timechart [span=&lt;time&gt;] count [by &lt;field&gt;]</code> - log's count over time.
 <ul>
 <li><code>&lt;time&gt;</code> examples: <code>1m</code>, <code>1h</code>, <code>10d</code></li>
 </ul>
 </li>
-<li><code>&lt;query&gt; earliest=-&lt;time&gt;</code> - query from the last specified amount of <code>&lt;time&gt;</code>.
+<li><code>&lt;query&gt; earliest=-&lt;time&gt;</code> - query since the last specified amount of <code>&lt;time&gt;</code>.
 <ul>
 <li><code>&lt;time&gt;</code> examples: <code>1m</code>, <code>1h</code>, <code>10d</code></li>
 </ul>
 </li>
 <li><code>&lt;query&gt; | tail 1</code> - get the tail event.</li>
 <li><code>.</code> - to concat field values, e.g., <code>&lt;field0&gt;."-".&lt;field1&gt;</code></li>
-<li><code>&lt;query&gt; | eval &lt;new-field&gt; = &lt;value&gt;</code> - create new field.</li>
-<li>Extract custom field based on regex expression examples:
+<li><code>&lt;query&gt; | eval &lt;new-field&gt; = &lt;value&gt;</code> - create field <code>&lt;new-field&gt;</code> with <code>&lt;value&gt;</code>.</li>
+<li>Examples to extract custom field based on regex expression:
 <ol>
 <li><code>&lt;query&gt; | rex field=&lt;field&gt; "Read Timeout of (?&lt;Timeout&gt;[0-9]+) for (?&lt;Source&gt;[A-Z]+)"</code>
 <ul>
@@ -178,7 +178,7 @@
 </li>
 <li><code>&lt;query&gt; | rex field=&lt;field&gt; ".*\.(?&lt;Value&gt;.*)"</code>
 <ul>
-<li>Extracts the new <code>Value</code> field.</li>
+<li>Extracts the new <code>Value</code> field from the <code>&lt;field&gt;</code>'s value.</li>
 </ul>
 </li>
 <li><code>&lt;query&gt; | rex field=_raw "(?&lt;ExceptionType&gt;(com|java|javax|org)\.[\w\.]+StateException)"</code>
