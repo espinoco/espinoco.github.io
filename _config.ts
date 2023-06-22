@@ -20,6 +20,7 @@ const site = lume({
 });
 site.copy("CNAME");
 site.copy("favicon.svg");
+site.copy([".mp4"]);
 site.use(slugifyUrls()); // Slugify all page URLs to remove potentially conflicting characters
 site.use(
   codeHighlight({
