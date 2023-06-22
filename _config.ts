@@ -3,6 +3,7 @@ import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import codeHighlight from "lume/plugins/code_highlight.ts";
 import sitemap from "lume/plugins/sitemap.ts";
 import metas from "lume/plugins/metas.ts";
+import date from "lume/plugins/date.ts";
 import internalLinks from "./plugins/internal_links.ts";
 
 import lang_bash from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/languages/bash.min.js";
@@ -30,6 +31,7 @@ site.use(
 );
 site.use(sitemap());
 site.use(metas());
+site.use(date());
 site.use(internalLinks());
 
 export default site;

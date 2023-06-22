@@ -98,6 +98,9 @@
           transform: translateY(-20px)
         }
       }
+      .date {
+        font-size: 0.8em;
+      }
       @media (prefers-color-scheme: dark) {
         a {
           color: rgb(88, 157, 246) !important;
@@ -141,6 +144,12 @@
         {% endfor %}
       </nav>
       <h1>{{title}}</h1>
+      {% if page.data.published_on %}
+      <p class="date">Published on {{ page.data.published_on | date('HUMAN_DATE') }}</p>
+      {% endif %}
+      {% if page.data.last_updated_on %}
+      <p class="date">Last updated on {{ page.data.last_updated_on | date('HUMAN_DATE') }}</p>
+      {% endif %}
       {{ content | safe }}
     </main>
     <script>
