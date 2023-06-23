@@ -1,6 +1,9 @@
 ---
 title: vimrc
+updated_on: 2023-06-22
 ---
+I use Vi for editing/reading random files. With [[vimrc|minimal]] to zero config I can rely I have Vi on remote sessions, and it loads fast. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]] as IDE for projects.
+
 ```vimscript
 " syntax highlighting
 syntax on
