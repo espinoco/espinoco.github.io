@@ -147,8 +147,8 @@
       {% if page.data.published_on %}
       <p class="date">Published on {{ page.data.published_on | date('HUMAN_DATE') }}</p>
       {% endif %}
-      {% if page.data.last_updated_on %}
-      <p class="date">Last updated on {{ page.data.last_updated_on | date('HUMAN_DATE') }}</p>
+      {% if page.data.updated_on %}
+      <p class="date">Updated on {{ page.data.updated_on | date('HUMAN_DATE') }}</p>
       {% endif %}
       {{ content | safe }}
     </main>
