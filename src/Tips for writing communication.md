@@ -3,7 +3,7 @@ title: Tips for writing communication
 published_on: 2023-05-28
 ---
 
-- Shorten sentences. Use less words to communicate the same message.
+- Shorten sentences. Use fewer words to communicate the same message.
 - Use words you use during face-to-face communication, if you don't say "therefore" then don't write it.
 - Data instead of adverbs like "most", "few" or "nearly".
 - Be objective. "The error count is 0" vs "It's fixed".
@@ -11,7 +11,7 @@ published_on: 2023-05-28
 
 ## Additional tips for written works
 
-- Add acronym and jargon context. 
+- Add acronyms and jargon context. 
 
 ## Additional tips for instant messaging
 

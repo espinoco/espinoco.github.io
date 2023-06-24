@@ -175,7 +175,7 @@
 <li><code>&lt;query&gt; | tail 1</code> - get the tail event.</li>
 <li><code>.</code> - to concat field values, e.g., <code>&lt;field0&gt;."-".&lt;field1&gt;</code></li>
 <li><code>&lt;query&gt; | eval &lt;new-field&gt; = &lt;value&gt;</code> - create field <code>&lt;new-field&gt;</code> with <code>&lt;value&gt;</code>.</li>
-<li>Examples to extract custom field based on regex expression:
+<li>Examples to extract custom fields based on regex expression:
 <ol>
 <li><code>&lt;query&gt; | rex field=&lt;field&gt; "Read Timeout of (?&lt;Timeout&gt;[0-9]+) for (?&lt;Source&gt;[A-Z]+)"</code>
 <ul>
@@ -189,7 +189,7 @@
 </li>
 <li><code>&lt;query&gt; | rex field=_raw "(?&lt;ExceptionType&gt;(com|java|javax|org)\.[\w\.]+StateException)"</code>
 <ul>
-<li>Use <code>_raw</code> to get the whole log instead of field specific.</li>
+<li>Use <code>_raw</code> to get the whole log instead of field-specific.</li>
 </ul>
 </li>
 </ol>

@@ -3,7 +3,7 @@ title: Bash quick reference
 ---
 
 - [[bash_profile]] - bash configuration settings.
-- `C-r` - Search bash history backwards.
+- `C-r` - Search bash history backward.
 - `C-s` - Search bash history forward.
 	- Requires `stty -ixon`.
 - `C-x C-e` - Invoke the `EDITOR` and execute the result as commands. If using vi mode, hit `v` instead while in command mode. Set vi mode in the [[inputrc|.inputrc file]].

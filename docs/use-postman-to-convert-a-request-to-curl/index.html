@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Carlo Espino's Personal Site">
     <link rel="icon" href="/favicon.svg">
-    <title>IntelliJ IDEA quick reference</title>
+    <title>Use Postman to convert a request to CURL</title>
     <style>
       /* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github.min.css */
       pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
@@ -138,14 +138,14 @@
   <meta property="og:type" content="website">
 <meta property="og:site_name" content="Carlo Espino's Personal Site">
 <meta property="og:locale" content="en">
-<meta property="og:title" content="IntelliJ IDEA quick reference">
-<meta property="og:url" content="https://carloespino.com/intellij-idea-quick-reference/">
+<meta property="og:title" content="Use Postman to convert a request to CURL">
+<meta property="og:url" content="https://carloespino.com/use-postman-to-convert-a-request-to-curl/">
 <meta property="og:image" content="https://carloespino.com/favicon.svg">
-<meta name="twitter:title" content="IntelliJ IDEA quick reference">
+<meta name="twitter:title" content="Use Postman to convert a request to CURL">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://carloespino.com/favicon.svg">
 <meta name="twitter:site" content="@croespino">
-<meta itemprop="name" content="IntelliJ IDEA quick reference">
+<meta itemprop="name" content="Use Postman to convert a request to CURL">
 <meta itemprop="image" content="https://carloespino.com/favicon.svg">
 <meta name="generator" content="Lume v1.17.5">
 </head>
@@ -158,14 +158,17 @@
         <a href="/about/" rel="noreferrer noopener">/about</a>
         
       </nav>
-      <h1>IntelliJ IDEA quick reference</h1>
+      <h1>Use Postman to convert a request to CURL</h1>
       
       
       <ul>
-<li><code>⇧ ⌘ R</code> - open the search and replace dialog to replace content across all the files in a project.</li>
-<li>Enable Git staging - <code>⇧ ⌘ A</code> &gt; <code>Git: Enable staging area</code> &gt; <code>ON</code>.</li>
-<li>Ensure no line break at the end of the file after saving, useful for some projects - IntelliJ &gt; Settings &gt; Editor &gt; General &gt; uncheck "Ensure every saved file ends with a line break".</li>
-<li>To view all placed breakpoints, <code>⇧ ⇧</code>  &gt; type view breakpoints &gt;  <code>View breakpoints...</code>.</li>
+<li>Create the request in Postman then go to the Sidebar &gt; <code>&lt;/&gt;</code> (Code) &gt; cURL &gt; Copy snippet</li>
+<li>To write the response to a file instead of the terminal's output
+<ul>
+<li>append at the end <code> &gt; &lt;file-name&gt;</code></li>
+<li>This is helpful for two reasons. For big responses, it is faster for the curl command to output the response to a file than printing the entire response to the terminal's output. It is easier to later open the file with an editor and inspect the file.</li>
+</ul>
+</li>
 </ul>
 
     </main>

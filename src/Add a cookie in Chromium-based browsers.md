@@ -1,5 +1,5 @@
 ---
-title: Add a cookie in Chromium based browsers
+title: Add a cookie in Chromium-based browsers
 published_on: 2023-06-21
 ---
 
