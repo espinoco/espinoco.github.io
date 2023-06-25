@@ -1,5 +1,7 @@
 ---
 title: IntelliJ IDEA quick reference
+published_on: 2023-04-09
+updated_on: 2023-04-14
 ---
 
 - `⇧ ⌘ R` - open the search and replace dialog to replace content across all the files in a project.

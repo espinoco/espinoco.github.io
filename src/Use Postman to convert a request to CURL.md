@@ -1,5 +1,7 @@
 ---
 title: Use Postman to convert a request to CURL
+published_on: 2023-04-03
+updated_on: 2023-05-30
 ---
 
 - Create the request in Postman then go to the Sidebar > `</>` (Code) > cURL > Copy snippet

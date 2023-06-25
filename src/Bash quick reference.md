@@ -1,5 +1,7 @@
 ---
 title: Bash quick reference
+published_on: 2023-04-09
+updated_on: 2023-05-29
 ---
 
 - [[bash_profile]] - bash configuration settings.

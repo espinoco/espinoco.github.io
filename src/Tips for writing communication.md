@@ -1,6 +1,7 @@
 ---
 title: Tips for writing communication
-published_on: 2023-05-28
+published_on: 2023-05-28 
+updated_on: 2023-06-22
 ---
 
 - Shorten sentences. Use fewer words to communicate the same message.

@@ -1,5 +1,6 @@
 ---
 title: Trust website certificate in macOS
+published_on: 2023-05-28
 ---
 Valid use cases I came across for doing this:
 1. Enabling HTTPS for router's LAN web access.

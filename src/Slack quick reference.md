@@ -1,6 +1,7 @@
 ---
 title: Slack quick reference
-updated_on: 2023-06-22
+published_on: 2023-04-09
+updated_on: 2023-06-21
 ---
 - Slack setup
     - Use Slack for Desktop

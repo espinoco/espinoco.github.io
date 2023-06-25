@@ -1,5 +1,7 @@
 ---
 title: Terminal quick reference
+published_on: 2023-04-09
+updated_on: 2023-04-13
 ---
 
 - `⌘ + K` - completely wipes all previous terminal's output so that it can't be reached even when scrolling up.

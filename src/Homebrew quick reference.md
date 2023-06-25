@@ -1,5 +1,7 @@
 ---
 title: Homebrew quick reference
+published_on: 2023-04-09
+updated_on: 2023-04-12
 ---
 
 - `brew doctor` - verify brew's health.

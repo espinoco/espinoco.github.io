@@ -1,5 +1,7 @@
 ---
 title: Splunk quick reference
+published_on: 2023-04-09
+updated_on: 2023-05-30
 ---
 - `<query> | timechart [span=<time>] count [by <field>]` - log's count over time.
     - `<time>` examples: `1m`, `1h`, `10d`

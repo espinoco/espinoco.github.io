@@ -1,5 +1,7 @@
 ---
 title: inputrc
+published_on: 2023-04-02
+updated_on: 2023-04-13
 ---
 ```bash
 # REQUIRES THE LATEST VERSION OF BASH

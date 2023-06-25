@@ -1,5 +1,7 @@
 ---
 title: Git quick reference
+published_on: 2023-04-09
+updated_on: 2023-05-29
 ---
 
 - `git checkout -b <new-branch> [<local-branch> | <remote>/<remote-branch>]` - creates `<new-branch>`  based on the `<local-branch>` or the `<remote-branch>`.
