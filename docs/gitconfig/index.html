@@ -163,113 +163,121 @@
       <p class="date">Published on April 5th, 2023</p>
       
       
-      <p class="date">Updated on May 28th, 2023</p>
+      <p class="date">Updated on July 25th, 2023</p>
       
-      <p>I think the Git command line is the best Git client. I use <a href="/intellij-idea-quick-reference/">IntelliJ IDEA</a>'s Git built-in features for reviewing changes and interactive staging, and the Git command-line interface (CLI) for all other tasks. I use this <code>.gitconfig</code> professionally, it is a creation I carefully produced and organized.</p>
+      <p>I think the Git command line is the best Git client. I use <a href="/intellij-idea-quick-reference/">IntelliJ IDEA</a>'s Git built-in features for reviewing local changes and interactive staging, and the Git command-line interface (CLI) for all other tasks. I use this <code>.gitconfig</code> professionally and personally.</p>
 <pre><code class="language-ini hljs"><span class="hljs-section">[alias]</span>
-    <span class="hljs-comment"># status</span>
+    <span class="hljs-comment"># Status</span>
     <span class="hljs-attr">g</span> = status
 
-    <span class="hljs-comment"># stage</span>
+    <span class="hljs-comment"># Stage</span>
     <span class="hljs-attr">s</span> = add
 
-    <span class="hljs-comment"># unstage</span>
+    <span class="hljs-comment"># Unstage</span>
     <span class="hljs-attr">u</span> = restore --staged
 
-    <span class="hljs-comment"># commit-create: creates a new commit.</span>
+    <span class="hljs-comment"># Creates a new commit</span>
     <span class="hljs-attr">cc</span> = commit
 
-    <span class="hljs-comment"># commit-amend: amends the last commit.</span>
+    <span class="hljs-comment"># Amends the last commit</span>
     <span class="hljs-attr">ca</span> = commit --amend
 
-    <span class="hljs-comment"># commit-empty: creates an empty commit.</span>
+    <span class="hljs-comment"># Creates a new commit with an empty message</span>
     <span class="hljs-attr">ce</span> = commit --allow-empty
 
-    <span class="hljs-comment"># branch-delete: deletes a branch.</span>
+    <span class="hljs-comment"># Deletes a branch</span>
     <span class="hljs-attr">bd</span> = !git branch -D
 
-    <span class="hljs-comment"># branch-rename: renames a branch.</span>
+    <span class="hljs-comment"># Renames the current branch. It reads from the input the branch name to delete.</span>
     <span class="hljs-attr">br</span> = !git branch -m
 
-    <span class="hljs-comment"># branch-create: creates a branch with name read from input, it first checks if there is any</span>
-    <span class="hljs-comment">#     change that isn't committed. Optionally, the second input argument specifies the revision</span>
-    <span class="hljs-comment">#     the branch will be based on.</span>
-    <span class="hljs-attr">bc</span> = <span class="hljs-string">"!if [[ -z $(git status -s) ]]; then \
+    <span class="hljs-comment"># Gets the upstream remote and branch</span>
+    <span class="hljs-attr">up</span> = !git for-each-ref --format=<span class="hljs-string">'%(upstream:short)'</span> <span class="hljs-string">"$(git symbolic-ref -q HEAD)"</span>
+
+    <span class="hljs-comment"># Gets the upstream branch only</span>
+    <span class="hljs-attr">upb</span> = !git up | sed <span class="hljs-string">'s/.*\\///'</span>
+
+    <span class="hljs-comment"># Gets the upstream remote only</span>
+    <span class="hljs-attr">upr</span> = !git up | sed <span class="hljs-string">'s/\\/.*//'</span>
+
+    <span class="hljs-comment"># Fetches the upsteram branch from the upstream remote</span>
+    <span class="hljs-attr">fu</span> = !git fetch $(git upr) $(git upb)
+
+    <span class="hljs-comment"># Rebases the current branch with the updated upstream remote and branch</span>
+    <span class="hljs-attr">ru</span> = !git fu &amp;&amp; git rebase $(git up)
+
+    <span class="hljs-comment"># Fetches a branch from the upstream remote and checks it out. It reads from input the name of</span>
+    <span class="hljs-comment"># the branch from the remote.</span>
+    <span class="hljs-attr">gb</span> = !git fetch $(git upr) <span class="hljs-variable">$1</span> &amp;&amp; git checkout -b <span class="hljs-variable">$1</span> $(git upr)/<span class="hljs-variable">$1</span> &amp;&amp; :
+
+    <span class="hljs-comment"># Pushes the current branch to the upstream push remote</span>
+    <span class="hljs-attr">pu</span> = !git push $(git upr) $(git branch --show-current)
+
+    <span class="hljs-comment"># Spins off a new branch based on the upstream remote and branch. It first checks if there are</span>
+    <span class="hljs-comment"># uncommitted changes. It reads from the input the name of the new branch.</span>
+    <span class="hljs-attr">so</span> = <span class="hljs-string">"!if [[ -z $(git status -s) ]]; then \
                if [[ -z "</span><span class="hljs-variable">$1</span><span class="hljs-string">" ]]; then \
-                   echo \"usage: git bc &lt;new-branch-name&gt; [&lt;revision-branch-is-based-on&gt;]\"; \
+                   echo \"Usage: git so &lt;new-branch-name&gt;\"; \
                else \
-                   git checkout -b $1 $2; \
+                   git fu &amp;&amp; \
+                   git checkout -b $1 $(git up); \
                fi; \
            else git status; fi"</span> &amp;&amp; :
 
-    <span class="hljs-comment"># branch-spinoff: creates a new branch based on a remote branch using the push remote,</span>
-    <span class="hljs-comment">#     it first checks if there is any change that isn't committed. Example: git bs feat master,</span>
-    <span class="hljs-comment">#     will create a branch named feat based on &lt;remote&gt;/master.</span>
-    <span class="hljs-attr">bs</span> = <span class="hljs-string">"!if [[ -z $(git status -s) ]]; then \
-               if [[ -z "</span><span class="hljs-variable">$1</span><span class="hljs-string">" || -z "</span><span class="hljs-variable">$2</span><span class="hljs-string">" ]]; then \
-                   echo \"usage: git bs &lt;new-branch-name&gt; &lt;remote-branch-to-spinoff-from&gt;\"; \
-               else \
-                   git fetch $(git remote) $2 &amp;&amp; \
-                   git checkout -b $1 $(git remote)/$2; \
-               fi; \
-           else git status; fi"</span> &amp;&amp; :
-
-    <span class="hljs-comment"># fetch-branch: fetches a branch read from input from the remote and checks it out.</span>
-    <span class="hljs-attr">fb</span> = !git fetch $(git remote) <span class="hljs-variable">$1</span> &amp;&amp; git checkout -b <span class="hljs-variable">$1</span> $(git remote)/<span class="hljs-variable">$1</span> &amp;&amp; :
-
-    <span class="hljs-comment"># push-branch: pushes the current branch to its push remote.</span>
-    <span class="hljs-attr">pb</span> = !git push $(git remote) $(git branch --show-current)
-
-    <span class="hljs-comment"># stash-create: creates a stash of the index and working tree. The stash name includes the</span>
-    <span class="hljs-comment">#    current date and time stamp, and it takes an optional description read from input.</span>
-    <span class="hljs-comment">#    Additionally, it cleans up all the changes.</span>
-    <span class="hljs-attr">zc</span> = <span class="hljs-string">"!git stash push --include-untracked --message \"$(date +'%a %b %d %H:%M') $1\" &amp;&amp; \
+    <span class="hljs-comment"># Creates a stash of the index and working tree. The stash name includes the</span>
+    <span class="hljs-comment"># current date and time stamp, and it takes an optional description read from input.</span>
+    <span class="hljs-comment"># Additionally, it cleans up all the changes.</span>
+    <span class="hljs-attr">zz</span> = <span class="hljs-string">"!git stash push --include-untracked --message \"$(date +'%a %b %d %H:%M') $1\" &amp;&amp; \
             git reset --hard HEAD -- &amp;&amp; git clean --force -d"</span> &amp;&amp; :
 
-    <span class="hljs-comment"># stash-apply: applies a stash to the working tree. It tries to preserve the stash index.</span>
-    <span class="hljs-comment">#    It takes an optional stash index to apply read from input.</span>
+    <span class="hljs-comment"># Applies a stash to the working tree preserving the index.</span>
+    <span class="hljs-comment"># It takes an optional stash index to apply, otherwise, defaults to the last created stash.</span>
     <span class="hljs-attr">za</span> = !git stash apply --index <span class="hljs-variable">$1</span> &amp;&amp; :
 
-    <span class="hljs-comment"># stash-list: lists stashes.</span>
+    <span class="hljs-comment"># Applies a stash to the working tree without preserving the index. When `git za` failed because</span>
+    <span class="hljs-comment"># of conflicts, use this instead.</span>
+    <span class="hljs-comment"># It takes an optional stash index to apply, otherwise, defaults to the last created stash.</span>
+    <span class="hljs-attr">zw</span> = !git stash apply <span class="hljs-variable">$1</span> &amp;&amp; :
+
+    <span class="hljs-comment"># Lists stashes</span>
     <span class="hljs-attr">zl</span> = !git stash list
 
-    <span class="hljs-comment"># rebase-upstream: rebases the current branch from the upstream branch.</span>
-    <span class="hljs-attr">ru</span> = !git fetch $(git remote) $(git branch --show-current) &amp;&amp; \
-            git rebase $(git remote)/$(git branch --show-current) &amp;&amp; :
-
-    <span class="hljs-comment"># rebase-interactive: starts an interactive rebase to change the last number of commits read</span>
-    <span class="hljs-comment">#    from input.</span>
+    <span class="hljs-comment"># Starts an interactive rebase to change the specified last number of commits. It reads from</span>
+    <span class="hljs-comment"># the input the last number of commits to rebase.</span>
     <span class="hljs-attr">ri</span> = !git rebase -i HEAD~<span class="hljs-variable">$1</span> &amp;&amp; :
 
-    <span class="hljs-comment"># log-branch: shows one line log for the current branch, read from input the number of commits</span>
-    <span class="hljs-comment">#    to display otherwise it defaults to the last commit.</span>
-    <span class="hljs-attr">lb</span> = <span class="hljs-string">"!if [[ -z $1 ]]; then \
-               git log --pretty=oneline -1; \
+    <span class="hljs-comment"># Displays one-line logs for the current branch. It takes an optional number of commits to</span>
+    <span class="hljs-comment"># display, otherwise, it defaults to the last 3 commits.</span>
+    <span class="hljs-attr">ll</span> = <span class="hljs-string">"!if [[ -z $1 ]]; then \
+               git log --pretty=oneline -3; \
            else \
                git log --pretty=oneline -$1; \
            fi"</span> &amp;&amp; :
-    <span class="hljs-comment"># log-upstream: shows one line log for the upstream branch, read from input the number of</span>
-    <span class="hljs-comment">#    commits to display otherwise it defaults to the last commit.</span>
+
+    <span class="hljs-comment"># Displays one-line logs for the upstream remote and branch. It takes an optional number of</span>
+    <span class="hljs-comment"># commits to display, otherwise, it defaults to the last 3 commits.</span>
     <span class="hljs-attr">lu</span> = <span class="hljs-string">"!if [[ -z $1 ]]; then \
-               git fetch $(git remote) &amp;&amp; \
-               git log --pretty=oneline @{u} -1; \
+               git fetch $(git upr) $(git upb) &amp;&amp; \
+               git log --pretty=oneline @{u} -3; \
            else \
-               git fetch $(git remote) &amp;&amp; \
+               git fetch $(git upr) $(git upb) &amp;&amp; \
                git log --pretty=oneline @{u} -$1; \
            fi"</span> &amp;&amp; :
 <span class="hljs-section">[core]</span>
-    <span class="hljs-comment"># set the vi editor to create and edit your commit and tag messages.</span>
+    <span class="hljs-comment"># Sets the Vi editor to create and edit the commit and tag messages</span>
     <span class="hljs-attr">editor</span> = vi
 <span class="hljs-section">[pull]</span>
-    <span class="hljs-comment"># will update your branch only if it can be "fast-forwarded" without creating new commits.</span>
+    <span class="hljs-comment"># Updates the current branch only if it can be "fast-forwarded" without creating new commits</span>
+    <span class="hljs-comment"># during the process.</span>
     <span class="hljs-attr">ff</span> = <span class="hljs-literal">on</span>ly
 <span class="hljs-section">[push]</span>
-    <span class="hljs-comment"># push the current branch to a branch of the same name, avoids setting up the upstream branch</span>
+    <span class="hljs-comment"># Pushes the current branch to a branch of the same name, avoids setting up the upstream branch</span>
     <span class="hljs-comment"># each time, and helps prevent pushing current branch changes to other branches by mistake.</span>
     <span class="hljs-attr">default</span> = current
 <span class="hljs-section">[include]</span>
-    <span class="hljs-comment"># place all projects under ~/workspace and have in there a .gitconfig with workspace specific</span>
-    <span class="hljs-comment"># git configurations like user, email, defaultBranch, etc.</span>
+    <span class="hljs-comment"># I place all the Git projects under ~/workspace and a ~/workspace/.gitconfig with workspace</span>
+    <span class="hljs-comment"># specific configurations like user, email, defaultBranch, etc. It allows to have this common</span>
+    <span class="hljs-comment"># config and separated specific settings for life and work.</span>
     <span class="hljs-attr">path</span> = ~/workspace/.gitconfig
 </code></pre>
 
