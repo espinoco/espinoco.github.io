@@ -1,13 +1,36 @@
 ---
 title: Slack quick reference
 published_on: 2023-04-09
-updated_on: 2023-06-21
+updated_on: 2023-07-26
 ---
 - Slack setup
-    - Use Slack for Desktop
-        - To use Slack windowing features.
+    - Use Slack for Desktop. To use Slack windowing features.
     - Use Grammarly Desktop so that it works with the Slack Desktop app. Needs to be downloaded from Grammarly's website.
+    - Slack settings:
+        - Advanced
+            - When writing a message, press `Enter` to…
+                - Start a new line (use `Enter` to send) (checked)
+            - Download location
+                - Choose location for each download (checked)
+        - Mark as read
+            - When I view a channel
+                - Start me at the newest message, but leave unseen messages unread
+        - Messages & media
+            - Theme -> Compact
+            - Names -> Just display names
+        - Additional options
+            - Display information about who is currently typing a message (checked)
+            - Show times with 24-hour clock (checked)
+            - Display color swatches next to hexadecimal values (checked)
+        - Emoji
+            - Convert my typed emoticons to emoji
+            - Show one-click reactions on messages
+                - My most frequently used emoji
+        - Themes
+            - Sync with OS setting (checked)
 - [[Tips for writing communication]]
 - `-` - negates during search, e.g., `<search> -in:#<channel-name>`.
     - The above example is equivalent to searching for `<search>` **not** in the channel `<channel-name>`.
+- `has:link` - search messages that have a link
+- `in:@<alias>` search DM's by person `<alias>`
 - `/color <user-alias> <html-color-code>` - set the `<user-alias>` color to the color `<html-color-code>`, e.g., `/color @carloespino #639FB6`. 
