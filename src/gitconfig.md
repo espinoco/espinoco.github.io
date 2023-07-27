@@ -1,114 +1,122 @@
 ---
 title: gitconfig
 published_on: 2023-04-06
-updated_on: 2023-05-29
+updated_on: 2023-07-26
 ---
-I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]]'s Git built-in features for reviewing changes and interactive staging, and the Git command-line interface (CLI) for all other tasks. I use this `.gitconfig` professionally, it is a creation I carefully produced and organized.
+I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]]'s Git built-in features for reviewing local changes and interactive staging, and the Git command-line interface (CLI) for all other tasks. I use this `.gitconfig` professionally and personally.
 
 ```ini
 [alias]
-    # status
+    # Status
     g = status
 
-    # stage
+    # Stage
     s = add
 
-    # unstage
+    # Unstage
     u = restore --staged
 
-    # commit-create: creates a new commit.
+    # Creates a new commit
     cc = commit
 
-    # commit-amend: amends the last commit.
+    # Amends the last commit
     ca = commit --amend
 
-    # commit-empty: creates an empty commit.
+    # Creates a new commit with an empty message
     ce = commit --allow-empty
 
-    # branch-delete: deletes a branch.
+    # Deletes a branch
     bd = !git branch -D
 
-    # branch-rename: renames a branch.
+    # Renames the current branch. It reads from the input the branch name to delete.
     br = !git branch -m
 
-    # branch-create: creates a branch with name read from input, it first checks if there is any
-    #     change that isn't committed. Optionally, the second input argument specifies the revision
-    #     the branch will be based on.
-    bc = "!if [[ -z $(git status -s) ]]; then \
+    # Gets the upstream remote and branch
+    up = !git for-each-ref --format='%(upstream:short)' "$(git symbolic-ref -q HEAD)"
+
+    # Gets the upstream branch only
+    upb = !git up | sed 's/.*\\///'
+
+    # Gets the upstream remote only
+    upr = !git up | sed 's/\\/.*//'
+
+    # Fetches the upsteram branch from the upstream remote
+    fu = !git fetch $(git upr) $(git upb)
+
+    # Rebases the current branch with the updated upstream remote and branch
+    ru = !git fu && git rebase $(git up)
+
+    # Fetches a branch from the upstream remote and checks it out. It reads from input the name of
+    # the branch from the remote.
+    gb = !git fetch $(git upr) $1 && git checkout -b $1 $(git upr)/$1 && :
+
+    # Pushes the current branch to the upstream push remote
+    pu = !git push $(git upr) $(git branch --show-current)
+
+    # Spins off a new branch based on the upstream remote and branch. It first checks if there are
+    # uncommitted changes. It reads from the input the name of the new branch.
+    so = "!if [[ -z $(git status -s) ]]; then \
                if [[ -z "$1" ]]; then \
-                   echo \"usage: git bc <new-branch-name> [<revision-branch-is-based-on>]\"; \
+                   echo \"Usage: git so <new-branch-name>\"; \
                else \
-                   git checkout -b $1 $2; \
+                   git fu && \
+                   git checkout -b $1 $(git up); \
                fi; \
            else git status; fi" && :
 
-    # branch-spinoff: creates a new branch based on a remote branch using the push remote,
-    #     it first checks if there is any change that isn't committed. Example: git bs feat master,
-    #     will create a branch named feat based on <remote>/master.
-    bs = "!if [[ -z $(git status -s) ]]; then \
-               if [[ -z "$1" || -z "$2" ]]; then \
-                   echo \"usage: git bs <new-branch-name> <remote-branch-to-spinoff-from>\"; \
-               else \
-                   git fetch $(git remote) $2 && \
-                   git checkout -b $1 $(git remote)/$2; \
-               fi; \
-           else git status; fi" && :
-
-    # fetch-branch: fetches a branch read from input from the remote and checks it out.
-    fb = !git fetch $(git remote) $1 && git checkout -b $1 $(git remote)/$1 && :
-
-    # push-branch: pushes the current branch to its push remote.
-    pb = !git push $(git remote) $(git branch --show-current)
-
-    # stash-create: creates a stash of the index and working tree. The stash name includes the
-    #    current date and time stamp, and it takes an optional description read from input.
-    #    Additionally, it cleans up all the changes.
-    zc = "!git stash push --include-untracked --message \"$(date +'%a %b %d %H:%M') $1\" && \
+    # Creates a stash of the index and working tree. The stash name includes the
+    # current date and time stamp, and it takes an optional description read from input.
+    # Additionally, it cleans up all the changes.
+    zz = "!git stash push --include-untracked --message \"$(date +'%a %b %d %H:%M') $1\" && \
             git reset --hard HEAD -- && git clean --force -d" && :
 
-    # stash-apply: applies a stash to the working tree. It tries to preserve the stash index.
-    #    It takes an optional stash index to apply read from input.
+    # Applies a stash to the working tree preserving the index.
+    # It takes an optional stash index to apply, otherwise, defaults to the last created stash.
     za = !git stash apply --index $1 && :
 
-    # stash-list: lists stashes.
+    # Applies a stash to the working tree without preserving the index. When `git za` failed because
+    # of conflicts, use this instead.
+    # It takes an optional stash index to apply, otherwise, defaults to the last created stash.
+    zw = !git stash apply $1 && :
+
+    # Lists stashes
     zl = !git stash list
 
-    # rebase-upstream: rebases the current branch from the upstream branch.
-    ru = !git fetch $(git remote) $(git branch --show-current) && \
-            git rebase $(git remote)/$(git branch --show-current) && :
-
-    # rebase-interactive: starts an interactive rebase to change the last number of commits read
-    #    from input.
+    # Starts an interactive rebase to change the specified last number of commits. It reads from
+    # the input the last number of commits to rebase.
     ri = !git rebase -i HEAD~$1 && :
 
-    # log-branch: shows one line log for the current branch, read from input the number of commits
-    #    to display otherwise it defaults to the last commit.
-    lb = "!if [[ -z $1 ]]; then \
-               git log --pretty=oneline -1; \
+    # Displays one-line logs for the current branch. It takes an optional number of commits to
+    # display, otherwise, it defaults to the last 3 commits.
+    ll = "!if [[ -z $1 ]]; then \
+               git log --pretty=oneline -3; \
            else \
                git log --pretty=oneline -$1; \
            fi" && :
-    # log-upstream: shows one line log for the upstream branch, read from input the number of
-    #    commits to display otherwise it defaults to the last commit.
+
+    # Displays one-line logs for the upstream remote and branch. It takes an optional number of
+    # commits to display, otherwise, it defaults to the last 3 commits.
     lu = "!if [[ -z $1 ]]; then \
-               git fetch $(git remote) && \
-               git log --pretty=oneline @{u} -1; \
+               git fetch $(git upr) $(git upb) && \
+               git log --pretty=oneline @{u} -3; \
            else \
-               git fetch $(git remote) && \
+               git fetch $(git upr) $(git upb) && \
                git log --pretty=oneline @{u} -$1; \
            fi" && :
 [core]
-    # set the vi editor to create and edit your commit and tag messages.
+    # Sets the Vi editor to create and edit the commit and tag messages
     editor = vi
 [pull]
-    # will update your branch only if it can be "fast-forwarded" without creating new commits.
+    # Updates the current branch only if it can be "fast-forwarded" without creating new commits
+    # during the process.
     ff = only
 [push]
-    # push the current branch to a branch of the same name, avoids setting up the upstream branch
+    # Pushes the current branch to a branch of the same name, avoids setting up the upstream branch
     # each time, and helps prevent pushing current branch changes to other branches by mistake.
     default = current
 [include]
-    # place all projects under ~/workspace and have in there a .gitconfig with workspace specific
-    # git configurations like user, email, defaultBranch, etc.
+    # I place all the Git projects under ~/workspace and a ~/workspace/.gitconfig with workspace
+    # specific configurations like user, email, defaultBranch, etc. It allows to have this common
+    # config and separated specific settings for life and work.
     path = ~/workspace/.gitconfig
 ```
