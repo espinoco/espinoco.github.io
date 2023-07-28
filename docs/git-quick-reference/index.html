@@ -179,127 +179,81 @@
       <p class="date">Updated on July 25th, 2023</p>
       
       <ul>
-<li>Undo the last commit.</li>
-</ul>
-<pre><code>git reset --hard HEAD~1
+<li>Undo the last commit.<pre><code>git reset --hard HEAD~1
 </code></pre>
-<ul>
-<li>Undo the last commit but keep the last commit's changes staged.</li>
-</ul>
-<pre><code>git reset --soft HEAD~1
+</li>
+<li>Undo the last commit but keep the last commit's changes staged.<pre><code>git reset --soft HEAD~1
 </code></pre>
-<ul>
-<li>Create a new branch based on an existing local branch, replace <code>&lt;new-branch&gt;</code> with the name of the new branch and <code>&lt;local-branch&gt;</code> with the name of the existing local branch.</li>
-</ul>
-<pre><code>git checkout -b &lt;new-branch&gt; &lt;local-branch&gt;
+</li>
+<li>Create a new branch based on an existing local branch, replace <code>&lt;new-branch&gt;</code> with the name of the new branch and <code>&lt;local-branch&gt;</code> with the name of the existing local branch.<pre><code>git checkout -b &lt;new-branch&gt; &lt;local-branch&gt;
 </code></pre>
-<ul>
-<li>Delete Git-untracked files.</li>
-</ul>
-<pre><code>git clean -df
+</li>
+<li>Delete Git-untracked files.<pre><code>git clean -df
 </code></pre>
-<ul>
-<li>Find a term in Git-tracked files, replace <code>&lt;term&gt;</code> with the search term.</li>
-</ul>
-<pre><code>git grep -n &lt;term&gt;
+</li>
+<li>Find a term in Git-tracked files, replace <code>&lt;term&gt;</code> with the search term.<pre><code>git grep -n &lt;term&gt;
 </code></pre>
-<ul>
+</li>
 <li>Using this <a href="/gitconfig/">Git configuration</a>
 <ul>
-<li>Status</li>
-</ul>
-<pre><code>git g
+<li>Status<pre><code>git g
 </code></pre>
-<ul>
-<li>Stage</li>
-</ul>
-<pre><code>git s &lt;pathspec&gt;…​
+</li>
+<li>Stage<pre><code>git s &lt;pathspec&gt;…​
 </code></pre>
-<ul>
-<li>Un-stage</li>
-</ul>
-<pre><code>git u &lt;pathspec&gt;…​
+</li>
+<li>Un-stage<pre><code>git u &lt;pathspec&gt;…​
 </code></pre>
-<ul>
-<li>Creates a new commit.</li>
-</ul>
-<pre><code>git cc
+</li>
+<li>Creates a new commit.<pre><code>git cc
 </code></pre>
-<ul>
-<li>Amends the last commit.</li>
-</ul>
-<pre><code>git ca
+</li>
+<li>Amends the last commit.<pre><code>git ca
 </code></pre>
-<ul>
-<li>Creates a new commit with an empty message.</li>
-</ul>
-<pre><code>git ce
+</li>
+<li>Creates a new commit with an empty message.<pre><code>git ce
 </code></pre>
-<ul>
-<li>Deletes a branch. Replace <code>&lt;branch&gt;</code> with the branch name to delete.</li>
-</ul>
-<pre><code>git bd &lt;branch&gt;
+</li>
+<li>Deletes a branch. Replace <code>&lt;branch&gt;</code> with the branch name to delete.<pre><code>git bd &lt;branch&gt;
 </code></pre>
-<ul>
-<li>Renames the current branch. Replace <code>&lt;name&gt;</code> with the new branch name.</li>
-</ul>
-<pre><code>git br &lt;name&gt;
+</li>
+<li>Renames the current branch. Replace <code>&lt;name&gt;</code> with the new branch name.<pre><code>git br &lt;name&gt;
 </code></pre>
-<ul>
-<li>Rebases the current branch with the updated upstream remote and branch.</li>
-</ul>
-<pre><code>git ru
+</li>
+<li>Rebases the current branch with the updated upstream remote and branch.<pre><code>git ru
 </code></pre>
-<ul>
-<li>Fetches a branch from the upstream remote and checks it out. Replace <code>&lt;branch&gt;</code> with the name of the branch from the remote.</li>
-</ul>
-<pre><code>git gb &lt;branch&gt;
+</li>
+<li>Fetches a branch from the upstream remote and checks it out. Replace <code>&lt;branch&gt;</code> with the name of the branch from the remote.<pre><code>git gb &lt;branch&gt;
 </code></pre>
-<ul>
-<li>Pushes the current branch to the upstream push remote.</li>
-</ul>
-<pre><code>git pu
+</li>
+<li>Pushes the current branch to the upstream push remote.<pre><code>git pu
 </code></pre>
-<ul>
-<li>Spins off a new branch based on the upstream remote and branch. It first checks if there are uncommitted changes. Replace <code>&lt;branch&gt;</code> with the name of the new branch.</li>
-</ul>
-<pre><code>git so &lt;branch&gt;
+</li>
+<li>Spins off a new branch based on the upstream remote and branch. It first checks if there are uncommitted changes. Replace <code>&lt;branch&gt;</code> with the name of the new branch.<pre><code>git so &lt;branch&gt;
 </code></pre>
-<ul>
-<li>Creates a stash of the index and working tree. The stash name includes the current date and time stamp, and it takes an optional description <code>&lt;desc&gt;</code>. Additionally, it cleans up all the changes.</li>
-</ul>
-<pre><code>git zz [&lt;desc&gt;]
+</li>
+<li>Creates a stash of the index and working tree. The stash name includes the current date and time stamp, and it takes an optional description <code>&lt;desc&gt;</code>. Additionally, it cleans up all the changes.<pre><code>git zz [&lt;desc&gt;]
 </code></pre>
-<ul>
-<li>Applies a stash to the working tree preserving the index. It takes an optional stash index <code>&lt;index&gt;</code> to apply, otherwise, defaults to the last created stash.</li>
-</ul>
-<pre><code>git za [&lt;index&gt;]
+</li>
+<li>Applies a stash to the working tree preserving the index. It takes an optional stash index <code>&lt;index&gt;</code> to apply, otherwise, defaults to the last created stash.<pre><code>git za [&lt;index&gt;]
 </code></pre>
-<ul>
-<li>Applies a stash to the working tree without preserving the index. When <code>git za</code> failed because of conflicts, use this instead. It takes an optional stash index <code>&lt;index&gt;</code> to apply, otherwise, defaults to the last created stash.</li>
-</ul>
-<pre><code>git zw [&lt;index&gt;]
+</li>
+<li>Applies a stash to the working tree without preserving the index. When <code>git za</code> failed because of conflicts, use this instead. It takes an optional stash index <code>&lt;index&gt;</code> to apply, otherwise, defaults to the last created stash.<pre><code>git zw [&lt;index&gt;]
 </code></pre>
-<ul>
-<li>Lists stashes.</li>
-</ul>
-<pre><code>git zl
+</li>
+<li>Lists stashes.<pre><code>git zl
 </code></pre>
-<ul>
-<li>Starts an interactive rebase to change the specified last number of commits. Replace <code>&lt;num&gt;</code> with the last number of commits to rebase.</li>
-</ul>
-<pre><code>git ri &lt;num&gt;
+</li>
+<li>Starts an interactive rebase to change the specified last number of commits. Replace <code>&lt;num&gt;</code> with the last number of commits to rebase.<pre><code>git ri &lt;num&gt;
 </code></pre>
-<ul>
-<li>Displays one-line logs for the current branch. It takes an optional number of commits to display <code>&lt;num&gt;</code>, otherwise, it defaults to the last 3 commits.</li>
-</ul>
-<pre><code>git ll [&lt;num&gt;]
+</li>
+<li>Displays one-line logs for the current branch. It takes an optional number of commits to display <code>&lt;num&gt;</code>, otherwise, it defaults to the last 3 commits.<pre><code>git ll [&lt;num&gt;]
 </code></pre>
-<ul>
-<li>Displays one-line logs for the upstream remote and branch.  It takes an optional number of commits to display <code>&lt;num&gt;</code>, otherwise, it defaults to the last 3 commits.</li>
-</ul>
-<pre><code>git lu [&lt;num&gt;]
+</li>
+<li>Displays one-line logs for the upstream remote and branch.  It takes an optional number of commits to display <code>&lt;num&gt;</code>, otherwise, it defaults to the last 3 commits.<pre><code>git lu [&lt;num&gt;]
 </code></pre>
+</li>
+</ul>
 </li>
 </ul>
 
