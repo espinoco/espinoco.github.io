@@ -61,9 +61,19 @@
       pre {
         max-width: 60em;
         min-width: 60em;
+        position: relative;
+        padding: 1em;
       }
       pre code.hljs {
-        padding: 0em;
+        padding: 0;
+      }
+      pre button {
+        position: absolute;
+        top: 1em;
+        right: 1em;
+      }
+      pre:not(:has(code.hljs)) {
+        background-color: rgb(237, 252, 237) !important;
       }
       code:not([class^="language-"]) {
         background-color: rgb(237, 252, 237) !important;
@@ -129,6 +139,9 @@
         h5,
         h6 {
           color: rgb(169, 183, 198) !important;
+        }
+        pre:not(:has(code.hljs)) {
+          background-color: rgb(54, 65, 53) !important;
         }
         code:not([class^="language-"]) {
           background-color: rgb(54, 65, 53) !important;
@@ -239,6 +252,30 @@
 </ul>
 
     </main>
+    <script>
+      const COPY_TEXT = "Copy";
+
+      async function copyCodeElementContents(block, button) {
+        const code = block.querySelector("code");
+        await navigator.clipboard.writeText(code.innerText);
+        button.innerText = "Copied";
+        setTimeout(() => {
+          button.innerText = COPY_TEXT;
+        }, 1000);
+      }
+
+      const blocks = document.querySelectorAll("pre");
+      blocks.forEach((block) => {
+        if (navigator.clipboard) {
+          let button = document.createElement("button");
+          button.innerText = COPY_TEXT;
+          block.appendChild(button);
+          button.addEventListener("click", async () => {
+            await copyCodeElementContents(block, button);
+          });
+        }
+      });
+    </script>
     <script>
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
       console.log("* Greetings human. You're a curios one.        *");
