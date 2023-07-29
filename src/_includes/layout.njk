@@ -7,17 +7,14 @@
     <link rel="icon" href="/favicon.svg">
     <title>{{title}}</title>
     <style>
-      /* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github.min.css */
-      pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
-        Theme: GitHub
-        Description: Light theme as seen on github.com
-        Author: github.com
-        Maintainer: @Hirse
-        Updated: 2021-05-15
-
-        Outdated base version: https://github.com/primer/github-syntax-light
-        Current colors taken from GitHub's CSS
-      */.hljs{color:#24292e;background:#fff}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_{color:#d73a49}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#6f42c1}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#005cc5}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#032f62}.hljs-built_in,.hljs-symbol{color:#e36209}.hljs-code,.hljs-comment,.hljs-formula{color:#6a737d}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#22863a}.hljs-subst{color:#24292e}.hljs-section{color:#005cc5;font-weight:700}.hljs-bullet{color:#735c0f}.hljs-emphasis{color:#24292e;font-style:italic}.hljs-strong{color:#24292e;font-weight:700}.hljs-addition{color:#22863a;background-color:#f0fff4}.hljs-deletion{color:#b31d28;background-color:#ffeef0}
+      /* https://highlightjs.org/static/demo/styles/base16/solarized-light.css */
+      /*!
+        Theme: Solarized Light
+        Author: Ethan Schoonover (modified by aramisgithub)
+        License: ~ MIT (or more permissive) [via base16-schemes-source]
+        Maintainer: @highlightjs/core-team
+        Version: 2021.09.0
+      */pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#586e75;background:#fdf6e3}.hljs ::selection,.hljs::selection{background-color:#93a1a1;color:#586e75}.hljs-comment{color:#839496}.hljs-tag{color:#657b83}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#586e75}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#dc322f}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#cb4b16}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#b58900}.hljs-strong{font-weight:700;color:#b58900}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#859900}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#2aa198}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#268bd2}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#6c71c4}.hljs-emphasis{color:#6c71c4;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#d33682}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
 
       /* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github-dark.min.css */
       @media (prefers-color-scheme: dark) {
@@ -60,24 +57,27 @@
         background-color: rgb(245, 247, 240) !important;
       }
       pre {
+        position: relative;
+      }
+      pre:has(code.hljs) {
         max-width: 60em;
         min-width: 60em;
-        position: relative;
-        padding: 1em;
       }
       pre code.hljs {
         padding: 0;
       }
       pre button {
         position: absolute;
-        top: 1em;
-        right: 1em;
+        top: 0.2em;
+        right: 0.2em;
       }
       pre:not(:has(code.hljs)) {
+        padding: 1em;
         background-color: rgb(237, 252, 237) !important;
       }
       code:not([class^="language-"]) {
         background-color: rgb(237, 252, 237) !important;
+        white-space: pre-wrap;
       }
       nav {
         border-bottom: 0.1em dashed;
@@ -111,6 +111,8 @@
       }
       .date {
         font-size: 0.9em;
+        font-style: italic;
+        color: #839496;
       }
       @media (prefers-color-scheme: dark) {
         a {
@@ -159,10 +161,10 @@
       </nav>
       <h1>{{title}}</h1>
       {% if page.data.published_on %}
-      <p class="date">Published on {{ page.data.published_on | date('HUMAN_DATE') }}</p>
-      {% endif %}
-      {% if page.data.updated_on %}
-      <p class="date">Updated on {{ page.data.updated_on | date('HUMAN_DATE') }}</p>
+      <p class="date">Published on {{ page.data.published_on | date('HUMAN_DATE') }}
+        {% if page.data.updated_on %}
+          &#x2022; Updated on {{ page.data.updated_on | date('HUMAN_DATE') }}
+        {% endif %}
       {% endif %}
       {{ content | safe }}
     </main>
