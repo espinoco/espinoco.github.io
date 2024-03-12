@@ -1,7 +1,7 @@
 ---
 title: vimrc
 published_on: 2023-04-02
-updated_on: 2023-06-23
+updated_on: 2024-02-22
 ---
 I use Vi for editing/reading random files. With [[vimrc|minimal]] to zero config I can rely I have Vi on remote sessions, and it loads fast. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]] as IDE for projects.
 
@@ -55,14 +55,4 @@ endif
 " enable mouse click navigation
 set mouse=a
 
-" Change cursor shape in different modes
-let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
-
-" Instant cursor shape change in different modes
-set ttimeout
-set ttimeoutlen=1
-set listchars=tab:>-,trail:~,extends:>,precedes:<,space:.
-set ttyfast
 ```

@@ -1,7 +1,7 @@
 ---
 title: Slack quick reference
 published_on: 2023-04-09
-updated_on: 2023-07-26
+updated_on: 2024-02-09
 ---
 - Slack setup
     - Use Slack for Desktop. To use Slack windowing features.
@@ -34,3 +34,5 @@ updated_on: 2023-07-26
 - `has:link` - search messages that have a link
 - `in:@<alias>` search DM's by person `<alias>`
 - `/color <user-alias> <html-color-code>` - set the `<user-alias>` color to the color `<html-color-code>`, e.g., `/color @carloespino #639FB6`. 
+- `command + shift + A` - Open the "Unreads" view.
+- `command + shift + D` - Expand/collapse sidebar.

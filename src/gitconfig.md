@@ -1,7 +1,7 @@
 ---
 title: gitconfig
 published_on: 2023-04-06
-updated_on: 2023-07-26
+updated_on: 2024-02-22
 ---
 I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]]'s Git built-in features for reviewing local changes and interactive staging, and the Git command-line interface (CLI) for all other tasks. I use this `.gitconfig` professionally and personally.
 
@@ -15,6 +15,9 @@ I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick
 
     # Unstage
     u = restore --staged
+
+    # Checkout
+    co = checkout
 
     # Creates a new commit
     cc = commit
@@ -119,4 +122,5 @@ I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick
     # specific configurations like user, email, defaultBranch, etc. It allows to have this common
     # config and separated specific settings for life and work.
     path = ~/workspace/.gitconfig
+
 ```

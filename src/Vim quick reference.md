@@ -4,6 +4,7 @@ published_on: 2023-04-09
 updated_on: 2023-07-26
 ---
 
+- `"*p` - Paste from the system clipboard instantly. Useful to paste a huge amount of text rapidly.
 - `gx` - Open the URL under the cursor with the default browser.
 - `:history /` - find previous search commands.
 - [[vimrc]] - vim configuration settings.
