@@ -155,8 +155,8 @@
   <body>
     <main class="content">
       <nav>
-        {% for page in search.pages("is_nav_page=true", "nav_order") %}
-        <a href="{{ page.data.url }}" rel="noreferrer noopener">{{ page.data.nav_text }}</a>
+        {% for data in search.pages("is_nav_page=true", "nav_order") %}
+        <a href="{{ data.url }}" rel="noreferrer noopener">{{ data.nav_text }}</a>
         {% endfor %}
       </nav>
       <h1>{{title}}</h1>

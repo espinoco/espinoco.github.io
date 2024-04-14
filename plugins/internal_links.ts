@@ -21,7 +21,7 @@ export default function () {
     }
 
     return (site: Site) => {
-        site.preprocessAll([".md"], (pages) => {
+        site.preprocess([".md"], (pages) => {
             // memoize all pages URLs by page title
             const memo = {};
             pages.forEach(page => {

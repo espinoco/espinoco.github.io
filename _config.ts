@@ -1,4 +1,5 @@
 import lume from "lume/mod.ts";
+import nunjucks from "lume/plugins/nunjucks.ts";
 import slugifyUrls from "lume/plugins/slugify_urls.ts";
 import codeHighlight from "lume/plugins/code_highlight.ts";
 import sitemap from "lume/plugins/sitemap.ts";
@@ -18,10 +19,13 @@ const site = lume({
   },
   location: new URL("https://carloespino.com") // needed for sitemap to set the url
 });
+site.use(nunjucks());
 site.copy("CNAME");
 site.copy("favicon.svg");
 site.copy([".mp4"]);
-site.use(slugifyUrls()); // Slugify all page URLs to remove potentially conflicting characters
+site.use(slugifyUrls({ // Slugify all page URLs to remove potentially conflicting characters
+  extensions: [".html"], // To slugify only HTML pages
+}));
 site.use(
   codeHighlight({
     languages: {
