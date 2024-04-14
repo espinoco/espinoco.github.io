@@ -8,8 +8,6 @@ This site uses [deno](https://github.com/denoland/deno) as the JavaScript runtim
 | ---------- | ------- |
 | deno.land  | ^1.41.2 |
 
-Tip: you can use [tea](https://github.com/teaxyz/cli) to get the dependencies table above resolved as a developer environment.
-
 ## Development
 
 - `deno task serve` to start a local server with live reload.
