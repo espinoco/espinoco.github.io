@@ -21,8 +21,7 @@ const site = lume({
 });
 site.use(nunjucks());
 site.copy("CNAME");
-site.copy("favicon.svg");
-site.copy([".mp4"]);
+site.copy([".mp4", ".png", ".xml", ".svg", ".webmanifest", ".ico"]);
 site.use(slugifyUrls({ // Slugify all page URLs to remove potentially conflicting characters
   extensions: [".html"], // To slugify only HTML pages
 }));

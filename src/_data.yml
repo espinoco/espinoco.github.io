@@ -5,4 +5,13 @@ metas:
   title: "=title"
   twitter: "@croespino"
   generator: true
-  icon: favicon.svg
+  icon: /favicon-32x32.png
+  image: /favicon-32x32.png
+  robots: true
+  description: "$ p"  # Use the content of the first <p> element
+  keywords:
+    - carlo
+    - espino
+    - software
+    - engineer
+    - seattle
