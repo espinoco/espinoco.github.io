@@ -1,6 +1,7 @@
 layout: layout.njk
 metas:
-  site: Carlo Espino's Personal Site
+  type: website
+  site: Carlo Espino | Software Engineer in Seattle
   lang: en
   title: "=title"
   twitter: "@croespino"
