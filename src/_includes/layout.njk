@@ -169,6 +169,7 @@
         {% for data in search.pages("is_nav_page=true", "nav_order") %}
         <a href="{{ data.url }}" aria-label="{{ data.nav_text }}" rel="noreferrer noopener">&sol;{{ data.nav_text }}</a>
         {% endfor %}
+        <a href="https://www.linkedin.com/in/espinoco/" aria-label="LinkedIn" rel="noreferrer noopener" target="_blank">&sol;linkedin</a>
       </nav>
       <h1>{{title}}</h1>
       {% if page.data.published_on %}
