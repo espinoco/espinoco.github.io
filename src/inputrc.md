@@ -1,14 +1,14 @@
 ---
 title: inputrc
 published_on: 2023-04-02
-updated_on: 2023-04-13
+updated_on: 2024-05-15
 ---
 ```bash
-# REQUIRES THE LATEST VERSION OF BASH
+# Use GNU bash version 5.2.26 or greater.
 
 $if Bash
-    # Allow bash command prompt to work like vi.
-    # Like Ctrl-X Ctrl-E, you can hit `v` while in the vi command mode.
+    # Allow bash command prompt to work like vi. Similar to Ctrl-X Ctrl-E while
+    # on the default emacs mode, you can hit `v` while in the vi command mode.
     set editing-mode vi
 $endif
 
@@ -19,9 +19,10 @@ $if mode=vi
     set vi-ins-mode-string \1\e[6 q\2
     # Set the cursor as block while on command mode.
     set vi-cmd-mode-string \1\e[2 q\2
-    # Switch to block cursor before executing a command. Otherwise, cursor will stay as vertical
-    # bar (insert mode) after opening a file with vi.
+    # Switch to block cursor before executing a command. Otherwise, cursor will
+    # stay as vertical bar (insert mode) after opening a file with vi.
     set keymap vi-insert
     RETURN: "\e\n"
 $endif
+
 ```

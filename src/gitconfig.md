@@ -1,9 +1,9 @@
 ---
 title: gitconfig
 published_on: 2023-04-06
-updated_on: 2024-02-22
+updated_on: 2024-05-15
 ---
-I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]]'s Git built-in features for reviewing local changes and interactive staging, and the Git command-line interface (CLI) for all other tasks. I use this `.gitconfig` professionally and personally.
+I think the Git command line is the best Git client. I use JetBrains IDEs, with Git staging enabled, for reviewing local changes and interactive staging. I use the Git command-line interface (CLI) for all other Git tasks. I use this `.gitconfig` professionally and personally.
 
 ```ini
 [alias]
@@ -16,44 +16,44 @@ I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick
     # Unstage
     u = restore --staged
 
-    # Checkout
+    # Checkout alias.
     co = checkout
 
-    # Creates a new commit
+    # Creates a new commit.
     cc = commit
 
-    # Amends the last commit
+    # Amends the last commit.
     ca = commit --amend
 
-    # Creates a new commit with an empty message
+    # Creates a new commit with an empty message. Useful for dummy commits.
     ce = commit --allow-empty
 
-    # Deletes a branch
+    # Deletes a branch.
     bd = !git branch -D
 
     # Renames the current branch. It reads from the input the branch name to delete.
     br = !git branch -m
 
-    # Gets the upstream remote and branch
+    # Gets the upstream remote and branch.
     up = !git for-each-ref --format='%(upstream:short)' "$(git symbolic-ref -q HEAD)"
 
-    # Gets the upstream branch only
+    # Gets the upstream branch only.
     upb = !git up | sed 's/.*\\///'
 
-    # Gets the upstream remote only
+    # Gets the upstream remote only.
     upr = !git up | sed 's/\\/.*//'
 
-    # Fetches the upsteram branch from the upstream remote
+    # Fetches the upsteram branch from the upstream remote.
     fu = !git fetch $(git upr) $(git upb)
 
-    # Rebases the current branch with the updated upstream remote and branch
+    # Rebases the current branch with the updated upstream remote and branch.
     ru = !git fu && git rebase $(git up)
 
     # Fetches a branch from the upstream remote and checks it out. It reads from input the name of
     # the branch from the remote.
     gb = !git fetch $(git upr) $1 && git checkout -b $1 $(git upr)/$1 && :
 
-    # Pushes the current branch to the upstream push remote
+    # Pushes the current branch to the upstream push remote.
     pu = !git push $(git upr) $(git branch --show-current)
 
     # Spins off a new branch based on the upstream remote and branch. It first checks if there are
@@ -68,21 +68,21 @@ I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick
            else git status; fi" && :
 
     # Creates a stash of the index and working tree. The stash name includes the
-    # current date and time stamp, and it takes an optional description read from input.
+    # current date and time stamp and takes an optional description read from input.
     # Additionally, it cleans up all the changes.
     zz = "!git stash push --include-untracked --message \"$(date +'%a %b %d %H:%M') $1\" && \
             git reset --hard HEAD -- && git clean --force -d" && :
 
     # Applies a stash to the working tree preserving the index.
-    # It takes an optional stash index to apply, otherwise, defaults to the last created stash.
+    # It takes an optional stash index, otherwise, it defaults to the last created stash.
     za = !git stash apply --index $1 && :
 
-    # Applies a stash to the working tree without preserving the index. When `git za` failed because
+    # Applies a stash to the working tree without preserving the index. When `git za` fails because
     # of conflicts, use this instead.
-    # It takes an optional stash index to apply, otherwise, defaults to the last created stash.
+    # It takes an optional stash index to apply, otherwise, it defaults to the last created stash.
     zw = !git stash apply $1 && :
 
-    # Lists stashes
+    # Lists stashes.
     zl = !git stash list
 
     # Starts an interactive rebase to change the specified last number of commits. It reads from
@@ -107,7 +107,7 @@ I think the Git command line is the best Git client. I use [[IntelliJ IDEA quick
                git log --pretty=oneline @{u} -$1; \
            fi" && :
 [core]
-    # Sets the Vi editor to create and edit the commit and tag messages
+    # Sets the Vi editor to create and edit the commit and tag messages.
     editor = vi
 [pull]
     # Updates the current branch only if it can be "fast-forwarded" without creating new commits

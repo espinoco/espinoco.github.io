@@ -1,9 +1,8 @@
 ---
 title: Git quick reference
 published_on: 2023-04-09
-updated_on: 2023-07-26
+updated_on: 2024-05-15
 ---
-
 - Undo the last commit.
     ```
     git reset --hard HEAD~1
@@ -45,7 +44,7 @@ updated_on: 2023-07-26
         ```
         git ca
         ```
-    - Creates a new commit with an empty message.
+    - Creates a new commit with an empty message. Useful for dummy commits.
         ```
         git ce
         ```
@@ -73,7 +72,7 @@ updated_on: 2023-07-26
         ```
         git so <branch>
         ```
-    - Creates a stash of the index and working tree. The stash name includes the current date and time stamp, and it takes an optional description `<desc>`. Additionally, it cleans up all the changes.
+    - Creates a stash of the index and working tree. The stash name includes the current date and time stamp and takes an optional description `<desc>`. Additionally, it cleans up all the changes.
         ```
         git zz [<desc>]
         ```
@@ -81,7 +80,7 @@ updated_on: 2023-07-26
         ```
         git za [<index>]
         ```
-    - Applies a stash to the working tree without preserving the index. When `git za` failed because of conflicts, use this instead. It takes an optional stash index `<index>` to apply, otherwise, defaults to the last created stash.
+    - Applies a stash to the working tree without preserving the index. When `git za` fails because of conflicts, use this instead. It takes an optional stash index `<index>` to apply, otherwise, defaults to the last created stash.
         ```
         git zw [<index>]
         ```

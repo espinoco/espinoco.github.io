@@ -1,20 +1,20 @@
 ---
 title: Slack quick reference
 published_on: 2023-04-09
-updated_on: 2024-02-09
+updated_on: 2024-05-15
 ---
 - Slack setup
-    - Use Slack for Desktop. To use Slack windowing features.
-    - Use Grammarly Desktop so that it works with the Slack Desktop app. Needs to be downloaded from Grammarly's website.
-    - Slack settings:
+    - Use Slack for Desktop to use Slack windowing features.
+    - Use Grammarly Desktop so that it works with the Slack Desktop app. It needs to be downloaded from Grammarly's website.
+    - Slack Settings
         - Advanced
             - When writing a message, press `Enter` to…
-                - Start a new line (use `Enter` to send) (checked)
+                - Start a new line (use `command + Enter` to send) (checked)
             - Download location
                 - Choose location for each download (checked)
         - Mark as read
-            - When I view a channel
-                - Start me at the newest message, but leave unseen messages unread
+            - Under "When I view a channel"
+                - Start me at the newest message, but leave unseen messages unread (checked)
         - Messages & media
             - Theme -> Compact
             - Names -> Just display names
@@ -25,14 +25,33 @@ updated_on: 2024-02-09
         - Emoji
             - Convert my typed emoticons to emoji
             - Show one-click reactions on messages
-                - My most frequently used emoji
+                - Custom
         - Themes
-            - Sync with OS setting (checked)
+            - System (selected)
 - [[Tips for writing communication]]
-- `-` - negates during search, e.g., `<search> -in:#<channel-name>`.
-    - The above example is equivalent to searching for `<search>` **not** in the channel `<channel-name>`.
-- `has:link` - search messages that have a link
-- `in:@<alias>` search DM's by person `<alias>`
-- `/color <user-alias> <html-color-code>` - set the `<user-alias>` color to the color `<html-color-code>`, e.g., `/color @carloespino #639FB6`. 
-- `command + shift + A` - Open the "Unreads" view.
-- `command + shift + D` - Expand/collapse sidebar.
+- `-` negates during search. Example to search the term `<TERM>` **not** in the channel `<CHANNEL-NAME>`:
+    ```
+    <TERM> -in:#<CHANNEL-NAME>
+    ```
+- Search messages that have a link.
+    ```
+    has:link
+    ```
+- Search DM's by person `<ALIAS>`.
+    ```
+    in:@<ALIAS>
+    ```
+- Set the `<USER-ALIAS>` color to the color `<HTML-COLOR-CODE>`.
+    ```
+    /color <USER-ALIAS> <HTML-COLOR-CODE>
+    ```
+    - Example: `/color @espinoco #639FB6`
+- Open the "Unreads" view.
+    ```
+    command + shift + A
+    ```
+- Expand/collapse sidebar.
+    ```
+    command + shift + D
+    ```
+

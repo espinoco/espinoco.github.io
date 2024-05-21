@@ -3,9 +3,23 @@ title: Homebrew quick reference
 published_on: 2023-04-09
 updated_on: 2023-04-12
 ---
-
-- `brew doctor` - verify brew's health.
-- `brew search <package>` - search the `<package>` formula.
-- `brew info <package>` - get `<package>` information. 
-- `brew install <package>` 
-- `brew upgrade <package>`  
+- Verify health.
+    ```
+    brew doctor
+    ```
+- Search the `<PACKAGE>` formula.
+    ```
+    brew search <PACKAGE>
+    ```
+- Get `<PACKAGE>` information. 
+    ```
+    brew info <PACKAGE>
+    ``` 
+- Install `<PACKAGE>`
+    ```
+    brew install <PACKAGE>
+    ``` 
+- Upgrade `<PACKAGE>`
+    ```
+    brew upgrade <PACKAGE>
+    ```

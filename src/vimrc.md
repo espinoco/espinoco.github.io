@@ -1,9 +1,11 @@
 ---
 title: vimrc
 published_on: 2023-04-02
-updated_on: 2024-02-22
+updated_on: 2024-05-15
 ---
-I use Vi for editing/reading random files. With [[vimrc|minimal]] to zero config I can rely I have Vi on remote sessions, and it loads fast. I use [[IntelliJ IDEA quick reference|IntelliJ IDEA]] as IDE for projects.
+I use Vi for text editing non-project files. I rely on Vi for remote sessions. I use JetBrains IDEs for projects.
+
+I use the following minimal configuration for my local machines.
 
 ```vimscript
 " syntax highlighting

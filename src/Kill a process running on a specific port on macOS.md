@@ -1,7 +1,12 @@
 ---
 title: Kill a process running on a specific port on macOS
-published_on: 2023-06-22
+published_on: 2024-05-14
 ---
-
-1. `lsof -i tcp:<port>` - to get the PID by `<port>`.
-2. `kill -9 <PID>` - to kill by `<PID>`.
+1. Get the PID by `<PORT>`
+    ```
+    lsof -i tcp:<PORT>
+    ```
+2. Kill by the `<PID>`
+    ```
+    kill -9 <PID>
+    ```

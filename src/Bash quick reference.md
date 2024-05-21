@@ -1,15 +1,26 @@
 ---
 title: Bash quick reference
 published_on: 2023-04-09
-updated_on: 2023-05-29
+updated_on: 2024-05-15
 ---
-
-- [[bash_profile]] - bash configuration settings.
-- `C-r` - Search bash history backward.
-- `C-s` - Search bash history forward.
-	- Requires `stty -ixon`.
-- `C-x C-e` - Invoke the `EDITOR` and execute the result as commands. If using vi mode, hit `v` instead while in command mode. Set vi mode in the [[inputrc|.inputrc file]].
-    - `export EDITOR=vi` - in case you get an `emacs: command not found` while on an SSH session.
-- `pwd` - print the current directory's full path.
-- `<command> | pbcopy` - copy the output of the `<command>` to the clipboard (macOS only).
-- `pbpaste > <file-path>` - output clipboard contents to the `<file-path>` (macOS only).
+- Check out my [[bash_profile|bash configuration]].
+- Search bash history backward.
+    ```
+    Ctrl-r
+    ```
+- Search bash history forward. Requires `stty -ixon` in the [[bash_profile|bash configuration]].
+    ```
+    Ctrl-s
+    ```
+- Invoke the `EDITOR` and execute the result as commands. If using vi mode, hit `v` instead while in command mode. vi mode is set in the [[inputrc|.inputrc file]].
+    ```
+    Ctrl-x Ctrl-e
+    ```
+    - In case you get an `emacs: command not found` while on an SSH session.
+        ```
+        export EDITOR=vi
+        ```
+- Print the current directory's full path.
+    ```
+    pwd
+    ```

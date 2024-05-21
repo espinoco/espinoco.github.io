@@ -1,19 +1,38 @@
 ---
 title: Splunk quick reference
 published_on: 2023-04-09
-updated_on: 2023-05-30
+updated_on: 2024-05-15
 ---
-- `<query> | timechart [span=<time>] count [by <field>]` - log's count over time.
-    - `<time>` examples: `1m`, `1h`, `10d`
-- `<query> earliest=-<time>` - query since the last specified amount of `<time>`.
-    - `<time>` examples: `1m`, `1h`, `10d`
-- `<query> | tail 1` - get the tail event.
-- `.` - to concat field values, e.g., `<field0>."-".<field1>`
-- `<query> | eval <new-field> = <value>` - create field `<new-field>` with `<value>`.
-- Examples to extract custom fields based on regex expression:
-    1. `<query> | rex field=<field> "Read Timeout of (?<Timeout>[0-9]+) for (?<Source>[A-Z]+)"`
-        - Extracts the new fields `Timeout` and `Source` from the `<field>`'s value.
-    2.  `<query> | rex field=<field> ".*\.(?<Value>.*)"`
-        - Extracts the new `Value` field from the `<field>`'s value.
-    3. `<query> | rex field=_raw "(?<ExceptionType>(com|java|javax|org)\.[\w\.]+StateException)"`
-        - Use `_raw` to get the whole log instead of field-specific.
+- Log's count over time. Replace `<TIME>` with `1m`, `1h`, `10d`, etc.
+    ```
+    <QUERY> | timechart [span=<TIME>] count [by <FIELD>]
+    ```
+- Query since the last specified amount of `<TIME>`. Replace `<TIME>` with `-1h`, `-1d`, etc.
+    ```
+    <QUERY> earliest=-<TIME>
+    ```
+- Get the tail event.
+    ```
+    <QUERY> | tail 1
+    ```
+- Concat field values with `.`.
+    ```
+    <FIELD-X>."-".<FIELD-Y>
+    ```
+- Create field `<NEW-FIELD>` with `<VALUE>`.
+    ```
+    <QUERY> | eval <NEW-FIELD> = <VALUE>
+    ```
+- Extract custom fields based on regex expressions:
+    - Example to extract the new fields `Timeout` and `Source` from the `<FIELD>`'s value.
+        ```
+        <QUERY> | rex field=<FIELD> "Read Timeout of (?<Timeout>[0-9]+) for (?<Source>[A-Z]+)"
+        ```
+    - Example to extract the new `Value` field from the `<FIELD>`'s value.
+        ```
+        <QUERY> | rex field=<FIELD> ".*\.(?<Value>.*)"
+        ```
+    - Example to use `_raw` to get the whole log instead of field-specific.
+        ```
+        <QUERY> | rex field=_raw "(?<ExceptionType>(com|java|javax|org)\.[\w\.]+StateException)"
+        ```

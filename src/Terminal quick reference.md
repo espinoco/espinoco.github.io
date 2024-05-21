@@ -1,13 +1,30 @@
 ---
 title: Terminal quick reference
 published_on: 2023-04-09
-updated_on: 2023-04-13
+updated_on: 2024-05-17
 ---
-
-- `⌘ + K` - completely wipes all previous terminal's output so that it can't be reached even when scrolling up.
-- `⌥ + Left Click` - terminal's cursor jumps to the clicked location.
-- Use bash in macOS instead of zsh.
+-  Wipes all the previous terminal's output so it can't be reached even when scrolling up.
+    ```
+    command + k
+    ```
+- The cursor jumps to the Terminal's clicked location.
+    ```
+    option + left_click
+    ```
+- To use bash in macOS instead of zsh.
     - Install the latest version of bash with [[Homebrew quick reference|Homebrew]].
-    - Run `which bash` to get the bash path.
+    - Get the bash path.
+        ```
+        which bash
+        ```
     - Go to Terminal > Settings > General > Shells open with > Command (complete path) > input the bash path.
-- [[Bash quick reference]]
+    - [[Bash quick reference]]
+- Copy the `<COMMAND>`'s output to the clipboard (macOS only).
+    ```
+    <COMMAND> | pbcopy
+    ```
+- Output clipboard contents to the `<FILE-PATH>` (macOS only).
+    ```
+    pbpaste > <FILE-PATH>
+    ```
+
