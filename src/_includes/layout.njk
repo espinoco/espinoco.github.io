@@ -104,8 +104,8 @@
         animation-delay: calc(.1s * var(--i));
       }
       ul li {
-        margin-top: 0.4em;
-        margin-bottom: 0.4em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
       }
       @keyframes butterfly {
         0%,40%,100% {
@@ -118,7 +118,7 @@
       .date {
         font-size: 0.9em;
         font-style: italic;
-        color: #839496;
+        color: #333333;
       }
       @media (prefers-color-scheme: dark) {
         a {
@@ -155,14 +155,19 @@
         code:not([class^="language-"]) {
           background-color: rgb(54, 65, 53) !important;
         }
+        .date {
+          color: #91a0a2;
+        }
       }
     </style>
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2B2B2B" />
   </head>
   <body>
     <main class="content">
       <nav>
         {% for data in search.pages("is_nav_page=true", "nav_order") %}
-        <a href="{{ data.url }}" rel="noreferrer noopener">{{ data.nav_text }}</a>
+        <a href="{{ data.url }}" aria-label="{{ data.nav_text }}" rel="noreferrer noopener">&sol;{{ data.nav_text }}</a>
         {% endfor %}
       </nav>
       <h1>{{title}}</h1>
