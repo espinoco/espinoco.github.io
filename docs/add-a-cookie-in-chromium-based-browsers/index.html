@@ -1,32 +1,37 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en" prefix="og: https://ogp.me/ns#"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carlo Espino's Personal Site">
-    <link rel="icon" href="/favicon.svg">
+    <meta name="description" content="Carlo Espino | Software Engineer in Seattle">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0c3c4a">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <title>Add a cookie in Chromium-based browsers</title>
     <style>
-      /* https://highlightjs.org/static/demo/styles/base16/solarized-light.css */
-      /*!
-        Theme: Solarized Light
-        Author: Ethan Schoonover (modified by aramisgithub)
-        License: ~ MIT (or more permissive) [via base16-schemes-source]
-        Maintainer: @highlightjs/core-team
-        Version: 2021.09.0
-      */pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#586e75;background:#fdf6e3}.hljs ::selection,.hljs::selection{background-color:#93a1a1;color:#586e75}.hljs-comment{color:#839496}.hljs-tag{color:#657b83}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#586e75}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#dc322f}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#cb4b16}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#b58900}.hljs-strong{font-weight:700;color:#b58900}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#859900}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#2aa198}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#268bd2}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#6c71c4}.hljs-emphasis{color:#6c71c4;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#d33682}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
+      /* being of highlightjs a11y-light.min.css */
+      pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
+        Theme: a11y-light
+        Author: @ericwbailey
+        Maintainer: @ericwbailey
 
-      /* https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/github-dark.min.css */
+        Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+      */.hljs{background:#fefefe;color:#545454}.hljs-comment,.hljs-quote{color:#696969}.hljs-deletion,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#d91e18}.hljs-attribute,.hljs-built_in,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-type{color:#aa5d00}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:green}.hljs-section,.hljs-title{color:#007faa}.hljs-keyword,.hljs-selector-tag{color:#7928a1}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}@media screen and (-ms-high-contrast:active){.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-quote,.hljs-string,.hljs-symbol,.hljs-type{color:highlight}.hljs-keyword,.hljs-selector-tag{font-weight:700}}
+      /* end of highlightjs a11y-light.min.css */
+
       @media (prefers-color-scheme: dark) {
-        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
-        Theme: GitHub Dark
-        Description: Dark theme as seen on github.com
-        Author: github.com
-        Maintainer: @Hirse
-        Updated: 2021-05-15
+      /* being of highlightjs a11y-dark.min.css */
+      pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
+        Theme: a11y-dark
+        Author: @ericwbailey
+        Maintainer: @ericwbailey
 
-        Outdated base version: https://github.com/primer/github-syntax-dark
-        Current colors taken from GitHub's CSS
-      */.hljs{color:#c9d1d9;background:#0d1117}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_{color:#ff7b72}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#d2a8ff}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#79c0ff}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#a5d6ff}.hljs-built_in,.hljs-symbol{color:#ffa657}.hljs-code,.hljs-comment,.hljs-formula{color:#8b949e}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#7ee787}.hljs-subst{color:#c9d1d9}.hljs-section{color:#1f6feb;font-weight:700}.hljs-bullet{color:#f2cc60}.hljs-emphasis{color:#c9d1d9;font-style:italic}.hljs-strong{color:#c9d1d9;font-weight:700}.hljs-addition{color:#aff5b4;background-color:#033a16}.hljs-deletion{color:#ffdcd7;background-color:#67060c}
+        Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css
+      */.hljs{background:#2b2b2b;color:#f8f8f2}.hljs-comment,.hljs-quote{color:#d4d0ab}.hljs-deletion,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#ffa07a}.hljs-built_in,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-type{color:#f5ab35}.hljs-attribute{color:gold}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#abe338}.hljs-section,.hljs-title{color:#00e0e0}.hljs-keyword,.hljs-selector-tag{color:#dcc6e0}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}@media screen and (-ms-high-contrast:active){.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-comment,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-quote,.hljs-string,.hljs-symbol,.hljs-type{color:highlight}.hljs-keyword,.hljs-selector-tag{font-weight:700}}
+      /* end of highlightjs a11y-dark.min.css */
       }
       body {
         max-width: 50.5em;
@@ -63,7 +68,7 @@
         min-width: 60em;
       }
       pre code.hljs {
-        padding: 0;
+        border: 0.1em solid black;
       }
       pre button {
         position: absolute;
@@ -72,6 +77,7 @@
       }
       pre:not(:has(code.hljs)) {
         padding: 1em;
+        padding-top: 2em;
         background-color: rgb(237, 252, 237) !important;
       }
       code:not([class^="language-"]) {
@@ -97,8 +103,8 @@
         animation-delay: calc(.1s * var(--i));
       }
       ul li {
-        margin-top: 0.4em;
-        margin-bottom: 0.4em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
       }
       @keyframes butterfly {
         0%,40%,100% {
@@ -111,7 +117,7 @@
       .date {
         font-size: 0.9em;
         font-style: italic;
-        color: #839496;
+        color: #333333;
       }
       @media (prefers-color-scheme: dark) {
         a {
@@ -148,38 +154,41 @@
         code:not([class^="language-"]) {
           background-color: rgb(54, 65, 53) !important;
         }
+        .date {
+          color: #91a0a2;
+        }
       }
     </style>
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2B2B2B">
   <meta property="og:type" content="website">
-<meta property="og:site_name" content="Carlo Espino's Personal Site">
+<meta property="og:site_name" content="Carlo Espino | Software Engineer in Seattle">
 <meta property="og:locale" content="en">
 <meta property="og:title" content="Add a cookie in Chromium-based browsers">
-<meta property="og:url" content="https://carloespino.com/add-a-cookie-in-chromium-based-browsers/">
-<meta property="og:image" content="https://carloespino.com/favicon.svg">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@croespino">
+<meta property="og:description" content="Watch the video about how to add a cookie in Chromium-based browsers (unmodified video by Google available under the CC-BY-SA-4.0 license)">
+<meta property="og:url" content="https://espino.co/add-a-cookie-in-chromium-based-browsers/">
+<meta property="og:image" content="https://espino.co/favicon-32x32.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Watch the video about how to add a cookie in Chromium-based browsers (unmodified video by Google available under the CC-BY-SA-4.0 license)">
+<meta name="keywords" content="carlo, espino, software, engineer, seattle">
+<meta name="robots" content="index, follow">
 <meta name="generator" content="Lume v2.1.3">
 </head>
   <body>
     <main class="content">
       <nav>
         
-        <a href="/" rel="noreferrer noopener">/home</a>
+        <a href="/" aria-label="home" rel="noreferrer noopener">/home</a>
         
-        <a href="/about/" rel="noreferrer noopener">/about</a>
+        <a href="/about/" aria-label="about" rel="noreferrer noopener">/about</a>
         
+        <a href="https://www.linkedin.com/in/espinoco/" aria-label="LinkedIn" rel="noreferrer noopener" target="_blank">/linkedin</a>
       </nav>
       <h1>Add a cookie in Chromium-based browsers</h1>
       
-      <p class="date">Published on June 20th, 2023
-        
+        <span class="date">Last revised: <time datetime="2024-05-14">May 2024</time></span>
       
-      </p><p><a href="/add-a-cookie-in-chromium-based-browsers.mp4">Watch the video</a> (<em>unmodified video by Google available under the CC-BY-SA-4.0 license</em>)</p>
-<p>Steps:</p>
-<ol>
-<li>Double-click an empty row in the table.</li>
-<li>Enter a&nbsp;<strong>Name</strong>&nbsp;and&nbsp;<strong>Value</strong>&nbsp;and press&nbsp;Enter.</li>
-</ol>
+      <p><a href="/add-a-cookie-in-chromium-based-browsers.mp4">Watch the video about how to add a cookie in Chromium-based browsers</a> (<em>unmodified video by Google available under the CC-BY-SA-4.0 license</em>)</p>
 
     </main>
     <script>
@@ -208,9 +217,9 @@
     </script>
     <script>
       console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-      console.log("* Greetings human. You're a curios one.        *");
-      console.log("*   Call butterfly() and unleash the powers of *");
-      console.log("*   the butterfly.                             *");
+      console.log("* Greetings human. You're a curios one.     *");
+      console.log("* Call butterfly() and unleash the powers   *");
+      console.log("* of the butterfly.                         *");
       console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
       function butterfly() {
           const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
