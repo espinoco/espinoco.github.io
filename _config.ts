@@ -17,7 +17,7 @@ const site = lume({
   server: {
     page404: "/404.html"
   },
-  location: new URL("https://carloespino.com") // needed for sitemap to set the url
+  location: new URL("https://espino.co") // needed for sitemap to set the url
 });
 site.use(nunjucks());
 site.copy("CNAME");

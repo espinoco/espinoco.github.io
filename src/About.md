@@ -16,4 +16,4 @@ I live in Seattle, Washington, and began my career in Mexico. I've been lucky to
 [Carlo Espino's site on GitHub](https://github.com/espinoco/espinoco.github.io). Sneak into the console for some magic.
 ## Email
 
-Please write to carlo at carlo espino dot com.
+My email address is my first initial at espino dot c o.
