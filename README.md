@@ -4,7 +4,7 @@ This site uses [deno](https://github.com/denoland/deno) as the JavaScript runtim
 
 ## Dependencies
 
-Deno 1.41.2
+Deno 1.43.5
 
 ## Development
 

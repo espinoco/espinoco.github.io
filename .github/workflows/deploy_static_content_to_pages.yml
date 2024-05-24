@@ -34,7 +34,7 @@ jobs:
       - name: Setup deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: "1.41.2"
+          deno-version: "1.43.5"
       - run: deno task lume
       - name: Setup Pages
         uses: actions/configure-pages@v5
