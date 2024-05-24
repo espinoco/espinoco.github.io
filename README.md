@@ -4,9 +4,7 @@ This site uses [deno](https://github.com/denoland/deno) as the JavaScript runtim
 
 ## Dependencies
 
-| Project    | Version |
-| ---------- | ------- |
-| deno.land  | ^1.41.2 |
+Deno 1.41.2
 
 ## Development
 
@@ -14,7 +12,7 @@ This site uses [deno](https://github.com/denoland/deno) as the JavaScript runtim
     ```bash
     deno task serve
     ```
-- Build the static site under the `docs` directory. GitHub Pages only allows the `/` (root) or `/docs` directories to be selected to serve the site.
+- Build the static site under the `build` directory.
     ```bash
     deno task lume
     ```
@@ -41,4 +39,5 @@ There are two kinds of pages, the nav pages and the non-nav pages. The nav pages
 
 ## Deployment
 
-Push to the `master` branch to deploy changes. GitHub Pages will deploy the site from the `master` branch and use the `/docs` directory as the source. The `CNAME` file is required by GitHub Pages to set the custom domain name.
+Push to the `master` branch to deploy changes. A GitHub Action builds and deploys the static content to GitHub Pages.  
+The `CNAME` file is required by GitHub Pages to set the custom domain name.

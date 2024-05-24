@@ -12,8 +12,7 @@ import lang_vimscript from "https://unpkg.com/@highlightjs/cdn-assets@11.6.0/es/
 
 const site = lume({
   src: "./src",
-  // GitHub Pages only allows the / (root) or /docs folders to be selected to build the site
-  dest: "./docs",
+  dest: "./build",
   server: {
     page404: "/404.html"
   },
