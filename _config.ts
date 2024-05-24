@@ -19,7 +19,6 @@ const site = lume({
   location: new URL("https://espino.co") // needed for sitemap to set the url
 });
 site.use(nunjucks());
-site.copy("CNAME");
 site.copy([".mp4", ".png", ".xml", ".svg", ".webmanifest", ".ico"]);
 site.use(slugifyUrls({ // Slugify all page URLs to remove potentially conflicting characters
   extensions: [".html"], // To slugify only HTML pages

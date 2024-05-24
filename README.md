@@ -39,5 +39,4 @@ There are two kinds of pages, the nav pages and the non-nav pages. The nav pages
 
 ## Deployment
 
-Push to the `master` branch to deploy changes. A GitHub Action builds and deploys the static content to GitHub Pages.  
-The `CNAME` file is required by GitHub Pages to set the custom domain name.
+Push to the `master` branch to deploy changes. A GitHub Action builds and deploys the static content to GitHub Pages.
