@@ -115,7 +115,7 @@
           transform: translateY(-20px)
         }
       }
-      .date {
+      .authored {
         font-size: 0.9em;
         font-style: italic;
         color: #333333;
@@ -155,7 +155,7 @@
         code:not([class^="language-"]) {
           background-color: rgb(54, 65, 53) !important;
         }
-        .date {
+        .authored {
           color: #91a0a2;
         }
       }
@@ -173,7 +173,10 @@
       </nav>
       <h1>{{title}}</h1>
       {% if page.data.updated_on %}
-        <span class="date">Last revised&#x3A; <time datetime="{{ page.data.updated_on | date('DATE') }}">{{ page.data.updated_on | date('MMMM yyyy') }}</time></span>
+        <span class="authored">
+          <address class="author">By <a rel="author" href="/">Carlo Espino</a></address>
+          Last revised on <time datetime="{{ page.data.updated_on | date('DATE') }}">{{ page.data.updated_on | date('MMMM yyyy') }}</time>
+        </span>
       {% endif %}
       {{ content | safe }}
     </main>
