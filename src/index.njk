@@ -6,6 +6,14 @@ nav_text: home
 nav_order: 0
 ---
 <h2>Software Engineer in Seattle</h2>
+
+<p>I'm a Software Engineer at Expedia. Previously, I led software engineering projects in Mexico.</p>
+<p>I live in Seattle, Washington, but I started my career in Mexico. I have gained experience developing
+complex software in small and large teams in the United States and Mexico.</p>
+<p>My mission in software development is to serve people with quality software. My full name is Carlo
+Eduardo Rodriguez Espino, but I prefer to go by Carlo Espino.</p>
+
+<h2>Writings</h2>
 <ul>
   {% for data in search.pages("is_nav_page!=true", "title") %}
     <li><a href="{{ data.url }}" rel="noreferrer noopener">{{ data.title }}</a></li>
